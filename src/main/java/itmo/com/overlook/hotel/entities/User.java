@@ -40,11 +40,10 @@ public class User {
     private String login;
 
     @Column(name = "password", nullable = false)
-    @Size(min = 8, max = 20)
     private String password;
 
     @Column(name = "email", nullable = false)
-    @Size(max = 20)
+    @Size(max = 50)
     @Email
     private String email;
 
