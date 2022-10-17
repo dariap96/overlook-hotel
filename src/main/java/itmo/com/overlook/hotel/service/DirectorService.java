@@ -1,4 +1,4 @@
-package itmo.com.overlook.hotel.Services;
+package itmo.com.overlook.hotel.service;
 
 import org.springframework.stereotype.Service;
 

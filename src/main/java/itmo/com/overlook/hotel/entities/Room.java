@@ -24,6 +24,9 @@ public class Room {
     @Column(name = "stage")
     private Integer stage;
 
+    @Column(name = "price")
+    private Double price;
+
     @NotNull
     @Column(name = "status", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
