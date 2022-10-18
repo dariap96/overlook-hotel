@@ -36,17 +36,16 @@ public class Room {
     @Type(type = "org.hibernate.type.TextType")
     private String status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "clientid")
-    private User clientid;
+    @OneToOne(mappedBy = "room")
+    private User client;
 
-    public Room(Integer id, Integer number, Integer countPeople, Integer stage, Double price, String status, User clientid) {
+    public Room(Integer id, Integer number, Integer countPeople, Integer stage, Double price, String status, User client) {
         this.id = id;
         this.number = number;
         this.countPeople = countPeople;
         this.stage = stage;
         this.price = price;
         this.status = status;
-        this.clientid = clientid;
+        this.client = client;
     }
 }

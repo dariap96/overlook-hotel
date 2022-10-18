@@ -1,8 +1,9 @@
 package itmo.com.overlook.hotel.services;
 
-
 import itmo.com.overlook.hotel.entities.Room;
+import itmo.com.overlook.hotel.entities.User;
 import itmo.com.overlook.hotel.repositories.RoomRepository;
+import itmo.com.overlook.hotel.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.List;
 @Service
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final UserRepository userRepository;
 
     public Room getById(Integer id) {
         log.info("IN Room Service getById {}", id);
@@ -34,8 +36,9 @@ public class RoomService {
         return roomRepository.findAll();
     }
 
-    public Room getRoomByClientid(Integer id) {
+    public Room getRoomByClientId(Integer id) {
+        User user = this.userRepository.findById(id).get();
         log.info("IN RoomService getByUserId {}", id);
-        return roomRepository.getRoomByClientid(id);
+        return roomRepository.getRoomByClient(user);
     }
 }

@@ -15,7 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public User getById(Integer id) {
-        log.info("IN User Service getById {}", id);
+        log.info("IN UserService getById {}", id);
         return userRepository.findById(id).get();
     }
 
@@ -30,18 +30,18 @@ public class UserService {
     }
 
     public List<User> getAll() {
-        log.info("IN RoomService getAll");
+        log.info("IN UserService getAll");
         return userRepository.findAll();
     }
 
     public List<User> getAllClients() {
-        log.info("IN RoomService getAllClients");
+        log.info("IN UserService getAllClients");
         return userRepository.findAll();
         // здесь нужно будет исправить на ту функцию, которую допишем в UserRepository
     }
 
     public List<User> getAllAdmins() {
-        log.info("IN RoomService getAllAdmins");
+        log.info("IN UserService getAllAdmins");
         return userRepository.findAll();
         // здесь нужно будет исправить на ту функцию, которую допишем в UserRepository
     }
