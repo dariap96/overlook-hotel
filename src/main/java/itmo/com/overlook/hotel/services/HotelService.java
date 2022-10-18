@@ -12,8 +12,8 @@ import lombok.extern.slf4j.Slf4j;
 public class HotelService {
     private final HotelRepository hotelRepository;
 
-    public Hotel getHotel() {
-        log.info("IN Room Service getHotel");
-        return hotelRepository.getFirst();
+    public Hotel getHotel(Integer id) {
+        log.info("IN Hotel Service getHotel");
+        return hotelRepository.findById(id).get();
     }
 }

@@ -21,7 +21,7 @@ public class HotelController {
     @RequestMapping(value = "/hotel", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Hotel> getHotel() {
 
-        Hotel hotel = this.hotelService.getHotel();
+        Hotel hotel = this.hotelService.getHotel(1);
 
         return new ResponseEntity<>(hotel, HttpStatus.OK);
     }

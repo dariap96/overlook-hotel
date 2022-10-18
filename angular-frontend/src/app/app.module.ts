@@ -7,16 +7,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from "./register/register.component";
 import {HttpClientModule} from "@angular/common/http";
-import { AdminPageComponent } from './admin-page/admin-page.component';
-import { RoomConstructorComponent } from './room-constructor/room-constructor.component';
+import { DirectorComponent } from './director/director.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    AdminPageComponent,
-    RoomConstructorComponent
+    DirectorComponent
   ],
   imports: [
     BrowserModule,
