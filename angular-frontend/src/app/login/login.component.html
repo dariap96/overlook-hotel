@@ -5,11 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hotel Auth (Super Puper Secure)</title>
-<!--  <link rel="stylesheet" href="./assets/toastr.min.css">-->
-  <link rel="stylesheet" href="./login.component.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/3.0.0/toaster.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js" ></script>
+  <script src="https://code.angularjs.org/1.2.0/angular-animate.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/3.0.0/toaster.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
   <script src="./assets/toastr.min.js"></script>
-  <script src="./assets/signIn.js"></script>
   <script src="./assets/toastSettings.js"></script>
 </head>
 <body>
@@ -20,9 +21,9 @@
                 <i class="fa fa-lock fa-stack-1x"></i>
             </span>
   </p>
-  <input type="email" id="login-username-field" class="login-username" autofocus required="true" placeholder="Username" />
-  <input type="password" id="login-password" class="login-password" required="true" placeholder="Password" />
-  <input type="button" name="signIn" id="login-submit" value="Sign In" autofocus="true" class="login-submit" />
+  <input type="email" #username class="login-username" autofocus required="true" placeholder="Username" />
+  <input type="password" #password class="login-password" required="true" placeholder="Password" />
+  <input type="button" name="signIn" id="login-submit" value="Sign In" autofocus class="login-submit" (click)="onSubmit()"/>
 </div>
 <div class="login-forgot-pass">
   <a href="http://localhost:4200/register" class="login-forgot-pass-button">Sign Up</a>
