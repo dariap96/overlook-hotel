@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Auth (Super Puper Secure)</title>
+<!--  <link rel="stylesheet" href="./assets/toastr.min.css">-->
+  <link rel="stylesheet" href="./login.component.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="./assets/toastr.min.js"></script>
+  <script src="./assets/signIn.js"></script>
+  <script src="./assets/toastSettings.js"></script>
+</head>
+<body>
+<div class="login-form">
+  <p class="login-text">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-lock fa-stack-1x"></i>
+            </span>
+  </p>
+  <input type="email" id="login-username-field" class="login-username" autofocus required="true" placeholder="Username" />
+  <input type="password" id="login-password" class="login-password" required="true" placeholder="Password" />
+  <input type="button" name="signIn" id="login-submit" value="Sign In" autofocus="true" class="login-submit" />
+</div>
+<div class="login-forgot-pass">
+  <a href="http://localhost:4200/register" class="login-forgot-pass-button">Sign Up</a>
+</div>
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div>
+</body>
+</html>

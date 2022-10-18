@@ -48,6 +48,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<UserDTO> getDirector() {
+
+        User user = this.userService.getDirector();
+
+        return new ResponseEntity<UserDTO>(this.userDtoMapper.toDTO(user), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<User> users = this.userService.getAll();
         List<UserDTO> userDTOs = new ArrayList<UserDTO>();
