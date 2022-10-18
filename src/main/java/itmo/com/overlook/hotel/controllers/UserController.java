@@ -1,5 +1,7 @@
 package itmo.com.overlook.hotel.controllers;
 
+import itmo.com.overlook.hotel.DTOs.UserDTO;
+import itmo.com.overlook.hotel.DTOs.UserDTOMapper;
 import itmo.com.overlook.hotel.entities.User;
 import itmo.com.overlook.hotel.services.*;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -31,33 +34,34 @@ public class UserController {
 
     private final UserService userService;
 
+    private final UserDTOMapper userDtoMapper = new UserDTOMapper();
+
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<User> getUserById(@PathVariable("id") Integer id) {
+    public ResponseEntity<UserDTO> getUserById(@PathVariable("id") Integer id) {
 
         if (id == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         User user = this.userService.getById(id);
 
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<UserDTO>(this.userDtoMapper.toDTO(user), HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<User>> getAllUsers() {
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<User> users = this.userService.getAll();
+        List<UserDTO> userDTOs = new ArrayList<UserDTO>();
+        for (User i: users) {
+            userDTOs.add(this.userDtoMapper.toDTO(i));
+        }
 
-        return new ResponseEntity<>(users, HttpStatus.OK);
+        return new ResponseEntity<List<UserDTO>>(userDTOs, HttpStatus.OK);
     }
-
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<User> deleteUser(@PathVariable("id") Integer id) {
-        User user = this.userService.getById(id);
-
         this.userService.delete(id);
-
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
     //добавить метода для вытаскивания всех clients и админов
 }
