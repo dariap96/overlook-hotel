@@ -1,6 +1,7 @@
 package itmo.com.overlook.hotel.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,9 +59,5 @@ public class User {
         this.login = login;
         this.password = password;
         this.email = email;
-    }
-
-    public User() {
-
     }
 }

@@ -1,4 +1,4 @@
-package itmo.com.overlook.hotel.service;
+package itmo.com.overlook.hotel.services;
 
 import itmo.com.overlook.hotel.entities.Notification;
 import itmo.com.overlook.hotel.repositories.NotificationRepository;

@@ -1,13 +1,17 @@
 package itmo.com.overlook.hotel.entities;
 
-import itmo.com.overlook.hotel.entities.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "notifications")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,36 +31,10 @@ public class Notification {
     @Type(type = "org.hibernate.type.TextType")
     private String info;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public Notification(Integer id, User fromclientid, User toclientid, String info) {
         this.id = id;
-    }
-
-    public User getFromclientid() {
-        return fromclientid;
-    }
-
-    public void setFromclientid(User fromclientid) {
         this.fromclientid = fromclientid;
-    }
-
-    public User getToclientid() {
-        return toclientid;
-    }
-
-    public void setToclientid(User toclientid) {
         this.toclientid = toclientid;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
         this.info = info;
     }
-
 }

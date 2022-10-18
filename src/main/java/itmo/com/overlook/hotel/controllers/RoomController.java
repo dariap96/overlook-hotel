@@ -1,7 +1,7 @@
 package itmo.com.overlook.hotel.controllers;
 
 import itmo.com.overlook.hotel.entities.Room;
-import itmo.com.overlook.hotel.service.RoomService;
+import itmo.com.overlook.hotel.services.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/rooms")

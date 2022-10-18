@@ -1,4 +1,4 @@
-package itmo.com.overlook.hotel.service;
+package itmo.com.overlook.hotel.services;
 
 
 import itmo.com.overlook.hotel.entities.Room;
@@ -6,7 +6,6 @@ import itmo.com.overlook.hotel.repositories.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @RequiredArgsConstructor

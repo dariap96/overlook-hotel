@@ -1,13 +1,17 @@
 package itmo.com.overlook.hotel.entities;
 
-import itmo.com.overlook.hotel.entities.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "hotel")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Hotel {
     @Id
     @NotNull
@@ -29,36 +33,10 @@ public class Hotel {
     @JoinColumn(name = "directorid", nullable = false)
     private User directorid;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Hotel(String name, Integer roomCount, Integer stageCount, User directorid) {
         this.name = name;
-    }
-
-    public Integer getRoomCount() {
-        return roomCount;
-    }
-
-    public void setRoomCount(Integer roomCount) {
         this.roomCount = roomCount;
-    }
-
-    public Integer getStageCount() {
-        return stageCount;
-    }
-
-    public void setStageCount(Integer stageCount) {
         this.stageCount = stageCount;
-    }
-
-    public User getDirectorid() {
-        return directorid;
-    }
-
-    public void setDirectorid(User directorid) {
         this.directorid = directorid;
     }
-
 }

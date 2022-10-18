@@ -1,13 +1,17 @@
 package itmo.com.overlook.hotel.entities;
 
-import itmo.com.overlook.hotel.entities.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "rooms")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,52 +40,13 @@ public class Room {
     @JoinColumn(name = "clientid")
     private User clientid;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public Room(Integer id, Integer number, Integer countPeople, Integer stage, Double price, String status, User clientid) {
         this.id = id;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
         this.number = number;
-    }
-
-    public Integer getCountPeople() {
-        return countPeople;
-    }
-
-    public void setCountPeople(Integer countPeople) {
         this.countPeople = countPeople;
-    }
-
-    public Integer getStage() {
-        return stage;
-    }
-
-    public void setStage(Integer stage) {
         this.stage = stage;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+        this.price = price;
         this.status = status;
-    }
-
-    public User getClientid() {
-        return clientid;
-    }
-
-    public void setClientid(User clientid) {
         this.clientid = clientid;
     }
-
 }

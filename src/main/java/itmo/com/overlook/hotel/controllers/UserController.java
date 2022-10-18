@@ -1,10 +1,8 @@
 package itmo.com.overlook.hotel.controllers;
 
-import itmo.com.overlook.hotel.entities.Room;
 import itmo.com.overlook.hotel.entities.User;
-import itmo.com.overlook.hotel.service.*;
+import itmo.com.overlook.hotel.services.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/users")

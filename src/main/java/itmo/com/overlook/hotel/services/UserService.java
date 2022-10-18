@@ -1,8 +1,6 @@
-package itmo.com.overlook.hotel.service;
+package itmo.com.overlook.hotel.services;
 
-import itmo.com.overlook.hotel.entities.Room;
 import itmo.com.overlook.hotel.entities.User;
-import itmo.com.overlook.hotel.repositories.RoomRepository;
 import itmo.com.overlook.hotel.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
