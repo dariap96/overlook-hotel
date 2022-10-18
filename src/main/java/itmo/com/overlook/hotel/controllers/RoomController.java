@@ -62,7 +62,7 @@ public class RoomController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Room> saveInternship(@RequestBody Room room) {
+    public ResponseEntity<Room> createRoom(@RequestBody Room room) {
         HttpHeaders headers = new HttpHeaders();
         if (room == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

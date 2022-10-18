@@ -8,13 +8,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from "./register/register.component";
 import {HttpClientModule} from "@angular/common/http";
 import { DirectorComponent } from './director/director.component';
+import {AdminPageComponent} from "./admin-page/admin-page.component";
+import {RoomConstructorComponent} from "./room-constructor/room-constructor.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DirectorComponent
+    DirectorComponent,
+    AdminPageComponent,
+    RoomConstructorComponent
   ],
   imports: [
     BrowserModule,
