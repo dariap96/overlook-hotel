@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel editing</title>
     <link rel="stylesheet" href="../css/hotelEditingPage.css">
+    <link rel="stylesheet" href="../css/checkbox.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="../js/hotelEditing.js"></script>
 </head>
+
 <body>
     <main>
-        
+        <div class="outer">
+            <div class="inner">
+                <div class="section hotel-settings">
+                    <div class="inner-section">
+                        Количество этажей: <input type="text" id="count-of-floors" class="input" autofocus="false" required="false"
+                            placeholder="0" style="margin: 0 5px ;" onfocusout="changeFloors(this)" />
+                    </div>
+                    <div class="inner-section">
+                        Количество номеров: <input type="text" id="count-of-rooms" class="input" autofocus="false" required="false"
+                            placeholder="0" style="margin: 0 5px ;" onfocusout="changeRoomsCount(this)" />
+                    </div>
+                </div>
+
+                <div id="rooms-sections">
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            fetchHotelInfo()
+            fetchRooms()
+        </script>
     </main>
 </body>
+
 </html>
