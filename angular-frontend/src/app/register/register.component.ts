@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import * as iziToast from "izitoast";
 
 @Component({
   selector: 'app-register',
@@ -7,33 +8,47 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: any = {
-    username: null,
-    email: null,
-    password: null
-  };
+
+  @ViewChild('name')
+  name !: ElementRef;
+
+  @ViewChild('email')
+  email !: ElementRef;
+
+  @ViewChild('password')
+  password !: ElementRef;
+
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
 
-  // constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+  }
 
   ngOnInit(): void {
   }
 
-  // onSubmit(): void {
-  //   const { username, email, password } = this.form;
-  //
-  //   this.authService.register(username, email, password).subscribe(
-  //     data => {
-  //       console.log(data);
-  //       this.isSuccessful = true;
-  //       this.isSignUpFailed = false;
-  //     },
-  //     err => {
-  //       this.errorMessage = err.error.message;
-  //       this.isSignUpFailed = true;
-  //     }
-  //   );
-  // }
+  onSubmit(): void {
+    if (this.name.nativeElement.value && this.email.nativeElement.value && this.password.nativeElement.value) {
+      this.authService.register(this.name.nativeElement.value, this.email.nativeElement.value,
+        this.password.nativeElement.value).subscribe(
+        data => {
+          console.log(data);
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        }
+      );
+    } else {
+      this.wrongParamsToast()
+    }
+  }
+  wrongParamsToast() {
+    iziToast.default.show({
+      title: "Wrong email or password!"
+    })
+  }
 }

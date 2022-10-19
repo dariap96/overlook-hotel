@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "hotel")
@@ -14,10 +15,12 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class Hotel {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "name", nullable = false)
-    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
+    @Column(name = "name")
+    @Size(max = 50)
     private String name;
 
     @NotNull
