@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.inner {
+  width: 90vw;
+  height: 85vh;
+  background-color: rgba(0, 33, 55, 0.7);
+  position: absolute;
+  margin: calc((100vh - 85vh) / 2) auto;
+  right: 20px;
+  border-radius: 16px;
+}
+
+body {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  margin: 0;
+  background-image: url('src/assets/images/background.jpg');
+  background-repeat: no-repeat;
+}
+
+.main-inner {
+  position: absolute;
+}
+
+.image {
+  position: relative;
+  left: -15px;
+  background-color: red;
+  border-radius: 16px;
+  width: 150px;
+  height: 150px;
+  margin-top: 30px;
+}
+
+.profile-info {
+  position: relative;
+  left: -50px;
+  background-color: rgba(255, 76, 91, 0.3);
+  border-radius: 16px;
+  height: calc(85vh - 90px - 150px);
+  width: 250px;
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-info-stack-value {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 5px;
+  background-color: rgba(255, 255, 255, 0.9);;
+  border-radius: 8px;
+}
+
+.profile-info-inner {
+  margin-bottom: 5px;
+}
+
+.main-content {
+  top: 0;
+  left: 225px;
+  position: absolute;
+  width: calc(90vw - 250px);
+  height: 80vh;
+  background-color: rgba(116, 66, 200, 0.5);
+  border-radius: 16px;
+  margin: 2.5vh 0;
+}
+
+.content-wrapper {
+  margin: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-content {
+  margin-bottom: 8px;
+  padding: 8px 3px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+.section-content:hover {
+  transform: scale(1.03);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  transform: scale(1.2);
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen
+and (max-width: 600px) {
+  .image {
+    left: -16px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-info {
+    left: -16px;
+    width: 120px;
+    height: calc(85vh - 90px - 120px);
+  }
+
+  .main-content {
+    left: 112px;
+    height: 80vh;
+    width: calc(90vw - 120px);
+  }
+}

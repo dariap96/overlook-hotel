@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class HotelController {
     private final HotelService hotelService;
 
-    @RequestMapping(value = "/hotel", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Hotel> getHotel() {
 
-        Hotel hotel = this.hotelService.getHotel(1);
+        Hotel hotel = this.hotelService.getHotel(3);
 
         return new ResponseEntity<>(hotel, HttpStatus.OK);
     }

@@ -1,1 +1,59 @@
-<p>director works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your page</title>
+  <link rel="stylesheet" href="./director.component.css">
+  <!--<link rel="stylesheet" href="../director.component.css">-->
+</head>
+<body>
+<main>
+  <div class="outer">
+    <div class="inner">
+      <div class="main-inner">
+        <img src="../../assets/images/placeholderPerson.jpg" class="image">
+        <div class="profile-info">
+          <div class="profile-info-only">
+            <div class="profile-info-stack-value">
+              <span class="name-title profile-info-inner">Имя</span>
+              <span class="name-value">Никита</span>
+            </div>
+          </div>
+
+          <div class="profile-info-stack-hotel">
+            <div class="profile-info-stack-value">
+              <span class="hotel-overview profile-info-inner">Количество комнат</span>
+              <span class="hotel-overview-value">{{hotel.room_count}}</span>
+            </div>
+
+            <div class="profile-info-stack-value">
+              <span class="hotel-count-or-vip-rooms profile-info-inner">Количество VIP комнат</span>
+              <span class="hotel-count-or-vip-rooms-value">0</span>
+            </div>
+
+            <div class="profile-info-stack-value">
+              <span class="hotel-count-or-floor profile-info-inner">Количество этажей</span>
+              <span class="hotel-count-or-floor-rooms-value">{{hotel.stage_count}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-content">
+          <div class="content-wrapper">
+            <div class="section-content">
+              <a href="../../HotelEditingPage/html/hotelEditingPage.html">Корректировка номеров отеля</a>
+            </div>
+
+            <div class="section-content">
+              <a href="#">Посмотреть моих работников</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
