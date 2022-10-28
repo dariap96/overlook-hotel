@@ -10,17 +10,20 @@ export class RoomConstructorService {
 
   constructor(private http: HttpClient) { }
 
-  ROOM_URL: string = "http://localhost:4200/" + 'api/student';
+  ROOM_URL: string = "http://localhost:8080/api/rooms";
 
-  getAllRooms(): Observable<any> {
-    return this.http.get<any>(this.ROOM_URL);
+  getAllRooms(): Observable<Room[]> {
+    return this.http.get<Room[]>("http://localhost:8080/api/rooms");
+  }
+  getRoomById(id: number): Observable<Room> {
+    return this.http.get<Room>("http://localhost:8080/api/rooms/room/"+id);
   }
 
-  public postRoom(room: Room) {
-    return this.http.post(this.ROOM_URL, room);
+  public postRoom(id: number) {
+    return this.http.post(this.ROOM_URL+id, {});
   }
 
-  public updateRoom(room: Room) {
-    return this.http.patch(this.ROOM_URL, room);
+  public updateRoom(id: number) {
+    return this.http.patch(this.ROOM_URL+id, {});
   }
 }
