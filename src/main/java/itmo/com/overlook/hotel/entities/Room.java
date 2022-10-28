@@ -36,7 +36,7 @@ public class Room {
     @Type(type = "org.hibernate.type.TextType")
     private String status;
 
-    @OneToOne(mappedBy = "room")
+    @OneToOne(mappedBy = "room", cascade = {CascadeType.ALL})
     private User client;
 
     public Room(Integer id, Integer number, Integer countPeople, Integer stage, Double price, String status, User client) {

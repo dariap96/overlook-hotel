@@ -14,6 +14,6 @@ public class HotelService {
 
     public Hotel getHotel(Integer id) {
         log.info("IN Hotel Service getHotel");
-        return hotelRepository.getById(id);
+        return hotelRepository.findById(id).get();
     }
 }

@@ -1,5 +1,6 @@
 package itmo.com.overlook.hotel.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -53,11 +54,17 @@ public class User {
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JsonIgnore
     private Set<Role> roleSet = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name="room_id")
+    @JsonIgnore
     private Room room;
+
+    @OneToOne(mappedBy = "director", cascade = {CascadeType.ALL})
+    @JsonIgnore
+    private Hotel hotel;
 
     public User(String login, String password, String email) {
         this.login = login;

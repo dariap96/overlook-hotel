@@ -31,15 +31,14 @@ public class Hotel {
     @Column(name = "stage_count", nullable = false)
     private Integer stageCount;
 
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "directorid", nullable = false)
-    private User directorid;
+    @OneToOne
+    @JoinColumn(name="directorid")
+    private User director;
 
-    public Hotel(String name, Integer roomCount, Integer stageCount, User directorid) {
+    public Hotel(String name, Integer roomCount, Integer stageCount, User director) {
         this.name = name;
         this.roomCount = roomCount;
         this.stageCount = stageCount;
-        this.directorid = directorid;
+        this.director = director;
     }
 }
