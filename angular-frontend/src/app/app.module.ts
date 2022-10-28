@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { DirectorComponent } from './director/director.component';
 import {AdminPageComponent} from "./admin-page/admin-page.component";
 import {RoomConstructorComponent} from "./room-constructor/room-constructor.component";
+import { AdminListComponent } from './admin-list/admin-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RoomConstructorComponent} from "./room-constructor/room-constructor.comp
     RegisterComponent,
     DirectorComponent,
     AdminPageComponent,
-    RoomConstructorComponent
+    RoomConstructorComponent,
+    AdminListComponent
   ],
   imports: [
     BrowserModule,
