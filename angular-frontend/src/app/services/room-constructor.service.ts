@@ -12,10 +12,10 @@ export class RoomConstructorService {
 
   ROOM_URL: string = "http://localhost:8080/api/rooms";
 
-  getAllRooms(): Observable<Room[]> {
+  public getAllRooms(): Observable<Room[]> {
     return this.http.get<Room[]>("http://localhost:8080/api/rooms");
   }
-  getRoomById(id: number): Observable<Room> {
+  public getRoomById(id: number): Observable<Room> {
     return this.http.get<Room>("http://localhost:8080/api/rooms/room/"+id);
   }
 
