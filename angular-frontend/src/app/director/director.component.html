@@ -18,14 +18,14 @@
           <div class="profile-info-only">
             <div class="profile-info-stack-value">
               <span class="name-title profile-info-inner">Имя</span>
-              <span class="name-value">Никита</span>
+              <span class="name-value">{{currentUser.username}}</span>
             </div>
           </div>
 
           <div class="profile-info-stack-hotel">
             <div class="profile-info-stack-value">
               <span class="hotel-overview profile-info-inner">Количество комнат</span>
-              <span class="hotel-overview-value">{{hotel.room_count}}</span>
+              <span class="hotel-overview-value">{{hotel.roomCount}}</span>
             </div>
 
             <div class="profile-info-stack-value">
@@ -35,7 +35,7 @@
 
             <div class="profile-info-stack-value">
               <span class="hotel-count-or-floor profile-info-inner">Количество этажей</span>
-              <span class="hotel-count-or-floor-rooms-value">{{hotel.stage_count}}</span>
+              <span class="hotel-count-or-floor-rooms-value">{{hotel.stageCount}}</span>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 export class Hotel {
   id!: number;
   name!: string;
-  room_count!: number;
-  stage_count!: number;
+  roomCount!: number;
+  stageCount!: number;
   directorid!: number;
 }
