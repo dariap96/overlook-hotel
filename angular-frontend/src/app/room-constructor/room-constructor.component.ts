@@ -16,19 +16,13 @@ export class RoomConstructorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllRooms();
+    this.roomConstructorService.getAllRooms().subscribe(data => {
+      this.rooms = data;
+    });
   }
 
-  getAllRooms() {
-    this.roomConstructorService.getAllRooms().subscribe(
-      (rooms: Room[]) => {
-        this.rooms = rooms;
-      },
-        (error: any) => console.warn(error)
-    )
-  }
   postRoom() {
-    this.roomConstructorService.postRoom(this.room).subscribe(
+    this.roomConstructorService.postRoom(this.room.id).subscribe(
       () => console.log('Posting correctly'),
       error => console.warn(error)
     )
@@ -36,7 +30,7 @@ export class RoomConstructorComponent implements OnInit {
   }
 
   updateRoom() {
-    this.roomConstructorService.updateRoom(this.room).subscribe(
+    this.roomConstructorService.updateRoom(this.room.id).subscribe(
       () => console.log('Updating correctly'),
       error => console.warn(error)
     )
