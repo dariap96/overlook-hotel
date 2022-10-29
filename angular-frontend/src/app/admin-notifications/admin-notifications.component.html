@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+</head>
+
+<body>
+<header>
+  <h1>
+    Уведомления
+  </h1>
+</header>
+<main id="main">
+  <div *ngFor="let notification of notifications">
+    <section>
+      <p class="post_info">
+        <span class="label_post">
+            От кого:
+            <span class="post_id">{{notification.client_name}}</span>
+        </span>
+        <span class="label_user_id">
+            Из комнаты №:
+            <span class="user_id">{{notification.room_number}}</span>
+        </span>
+      </p>
+      <p class="text_post">
+        {{notification.info}}
+      </p>
+    </section>
+  </div>
+</main>
+
+</body>
+
+</html>

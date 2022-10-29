@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from "./register/register.component";
 import {HttpClientModule} from "@angular/common/http";
 import { DirectorComponent } from './director/director.component';
-import {AdminPageComponent} from "./admin-page/admin-page.component";
+import {AdminComponent} from "./admin/admin.component";
 import {RoomConstructorComponent} from "./room-constructor/room-constructor.component";
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { AdminListComponent } from './admin-list/admin-list.component';
     LoginComponent,
     RegisterComponent,
     DirectorComponent,
-    AdminPageComponent,
+    AdminComponent,
     RoomConstructorComponent,
-    AdminListComponent
+    AdminListComponent,
+    AdminNotificationsComponent
   ],
   imports: [
     BrowserModule,

@@ -34,6 +34,11 @@ public class NotificationService {
         return notificationRepository.findAll();
     }
 
+    public List<Notification> getAllAdmin() {
+        log.info("IN NotificationService getAllAdmin");
+        return notificationRepository.findAllAdmin();
+    }
+
     public Notification getNotificationByFromclientid(Integer id) {
         log.info("IN RoomService getAll");
         return notificationRepository.getNotificationByFromclientid(id);
