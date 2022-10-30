@@ -1,0 +1,119 @@
+body {
+    font-size: 18px;
+    line-height: normal;
+    color: black;
+    font-family: 'Times New Roman', Georgia, Times, sans-serif;
+    font-weight: normal;
+}
+
+header h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+main section {
+    margin: 10px;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);
+    -moz-box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);
+    box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);
+    border-radius: 16px;
+    display: flex;
+}
+
+.post_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label_post,
+.post_id,
+.label_user_id,
+.user_id {
+    font-size: 0.9em;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.text_post {
+    text-align: center;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+main {
+    position: relative;
+    min-height: calc(100vh - 47px);
+}
+
+.inner {
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+@media only screen
+and (max-width: 600px) {
+    img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.prices-and-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.prices-and-all-inner {
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+.price {
+    padding-bottom: 5px;
+    display: block;
+}
+
+.main-text {
+    padding: 10px;
+}
+
+
+.booking {
+    color: -webkit-link;
+}
