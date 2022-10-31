@@ -31,6 +31,9 @@ public class Room {
     @Column(name = "price")
     private Double price;
 
+    @Column(name="available")
+    private boolean available;
+
     @NotNull
     @Column(name = "status", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
@@ -39,7 +42,8 @@ public class Room {
     @OneToOne(mappedBy = "room", cascade = {CascadeType.ALL})
     private User client;
 
-    public Room(Integer id, Integer number, Integer countPeople, Integer stage, Double price, String status, User client) {
+    public Room(Integer id, Integer number, Integer countPeople, Integer stage,
+                Double price, String status, User client, boolean available) {
         this.id = id;
         this.number = number;
         this.countPeople = countPeople;
@@ -47,5 +51,7 @@ public class Room {
         this.price = price;
         this.status = status;
         this.client = client;
+        this.available = available;
     }
+
 }
