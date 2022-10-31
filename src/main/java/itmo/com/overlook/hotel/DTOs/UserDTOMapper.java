@@ -10,6 +10,7 @@ public class UserDTOMapper {
         String login = user.getLogin();
         String email = user.getEmail();
         LocalDate bday = user.getBday();
-        return new UserDTO(name, surname, login, email, bday);
+        Integer roomNumber = user.getRoom().getNumber();
+        return new UserDTO(name, surname, login, email, bday, roomNumber);
     }
 }

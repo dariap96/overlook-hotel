@@ -41,4 +41,8 @@ public class RoomService {
         log.info("IN RoomService getByUserId {}", id);
         return roomRepository.getRoomByClient(user);
     }
+    public Room[] getVipRooms(Room[] rooms) {
+        return roomRepository.getVipRooms(rooms);
+    }
+    //не работает не работает))()(
 }

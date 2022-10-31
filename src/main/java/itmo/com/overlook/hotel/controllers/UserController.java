@@ -5,6 +5,7 @@ import itmo.com.overlook.hotel.DTOs.UserDTOMapper;
 import itmo.com.overlook.hotel.entities.User;
 import itmo.com.overlook.hotel.services.*;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,8 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@Slf4j
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/users")
 public class UserController {
 
@@ -38,11 +41,11 @@ public class UserController {
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<UserDTO> getUserById(@PathVariable("id") Integer id) {
-
         if (id == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         User user = this.userService.getById(id);
+        System.out.println(user);
 
         return new ResponseEntity<UserDTO>(this.userDtoMapper.toDTO(user), HttpStatus.OK);
     }

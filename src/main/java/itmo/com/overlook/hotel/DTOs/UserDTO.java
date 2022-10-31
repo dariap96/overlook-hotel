@@ -11,12 +11,14 @@ public class UserDTO {
     private String login;
     private String email;
     private LocalDate bday;
+    private Integer roomNumber;
 
-    UserDTO(String name, String surname, String login, String email, LocalDate bday) {
+    UserDTO(String name, String surname, String login, String email, LocalDate bday, Integer roomNumber) {
         this.name = name;
         this.surname = surname;
         this.login = login;
         this.email = email;
         this.bday = bday;
+        this.roomNumber = roomNumber;
     }
 }

@@ -34,7 +34,7 @@ public class RoomController {
         return new ResponseEntity<>(rooms, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Room> getRoomByClientid(@PathVariable("id") Integer clientId) {
         Integer roomId = this.roomService.getRoomByClientId(clientId).getId();
         if (clientId == null) {
@@ -72,9 +72,17 @@ public class RoomController {
         return new ResponseEntity<>(room, headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Room> deleteRoom(@PathVariable("id") Integer id) {
         this.roomService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+   @RequestMapping(value = "/vip", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Room[]> getVipRooms(Room[] rooms) {
+        Room[] vipRooms = this.roomService.getVipRooms(rooms);
+       return new ResponseEntity<>(vipRooms, HttpStatus.OK);
+   }
+
+//эта штука пока не работает
 }

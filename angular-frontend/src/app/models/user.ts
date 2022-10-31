@@ -3,5 +3,7 @@ export class User {
   name: string;
   surname: string;
   email: string;
-  roomid: number;
+  roomNumber: number;
+  login: string;
+  bday: string;
 }

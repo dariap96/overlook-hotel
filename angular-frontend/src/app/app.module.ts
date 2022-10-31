@@ -12,6 +12,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {RoomConstructorComponent} from "./room-constructor/room-constructor.component";
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminNotificationsComponent } from './admin-notifications/admin-notific
     AdminComponent,
     RoomConstructorComponent,
     AdminListComponent,
-    AdminNotificationsComponent
+    AdminNotificationsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
