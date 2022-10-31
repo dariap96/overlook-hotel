@@ -44,8 +44,8 @@ public class Room {
     @OneToOne(mappedBy = "room", cascade = {CascadeType.ALL})
     private User client;
 
-    @OneToMany(mappedBy = "room")
-    private Set<RoomDate> roomDates = new HashSet<>();
+    /*@OneToMany(mappedBy = "room")
+    private Set<RoomDate> roomDates = new HashSet<>();*/
 
     public Room(Integer id, Integer number, Integer countPeople, Integer stage,
                 Double price, String status, User client, boolean available) {

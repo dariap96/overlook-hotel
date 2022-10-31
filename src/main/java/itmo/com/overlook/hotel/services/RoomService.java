@@ -44,5 +44,5 @@ public class RoomService {
     public Room[] getVipRooms() {
         return roomRepository.getVipRooms();
     }
-    //не работает не работает))()(
+
 }

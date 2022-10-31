@@ -25,5 +25,4 @@ public class RoomDate {
     private LocalDate date;
 
 
-
 }
