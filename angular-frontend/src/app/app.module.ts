@@ -13,6 +13,7 @@ import {RoomConstructorComponent} from "./room-constructor/room-constructor.comp
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
 import { UserComponent } from './user/user.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserComponent } from './user/user.component';
     RoomConstructorComponent,
     AdminListComponent,
     AdminNotificationsComponent,
-    UserComponent
+    UserComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

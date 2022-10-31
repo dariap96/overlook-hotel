@@ -6,6 +6,7 @@ import {DirectorComponent} from "./director/director.component";
 import {RoomConstructorComponent} from "./room-constructor/room-constructor.component";
 import {AdminNotificationsComponent} from "./admin-notifications/admin-notifications.component";
 import {UserComponent} from "./user/user.component";
+import {BookingComponent} from "./booking/booking.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'room-edit', component: RoomConstructorComponent},
   { path: 'admin-notifications', component: AdminNotificationsComponent},
   { path: 'user', component: UserComponent},
-
+  { path: 'booking', component: BookingComponent}
 ];
 
 @NgModule({

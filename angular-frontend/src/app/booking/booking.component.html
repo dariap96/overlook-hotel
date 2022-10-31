@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Брони</title>
+<!--  <link rel="stylesheet" href="./modal.css">-->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="hystmodal.min.js"></script>
+</head>
+
+<body>
+<header>
+  <h1>
+    Забронировать комнату
+  </h1>
+</header>
+<main id="main">
+  <section>
+    <img src="">
+    <span class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A facilis exercitationem
+                laborum tenetur eos
+                minima non debitis rem qui dolor repudiandae quibusdam nostrum provident molestiae animi et, at
+                asperiores. Repudiandae!</span>
+    <div class="prices-and-all">
+      <div class="prices-and-all-inner">
+        <span class="price">Цена: <span>1000$</span></span>
+        <span class="price">Количество комнат: <span>500</span></span>
+        <span id="booking" class="booking" data="room.id" data-hystmodal="#myModal"
+              onclick="saveRoomId(this)">Забронировать</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <img src="">
+    <span class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A facilis exercitationem
+                laborum tenetur eos
+                minima non debitis rem qui dolor repudiandae quibusdam nostrum provident molestiae animi et, at
+                asperiores. Repudiandae!</span>
+    <div class="prices-and-all">
+      <div class="prices-and-all-inner">
+        <span class="price">Цена: <span>1000$</span></span>
+        <span class="price">Количество комнат: <span>500</span></span>
+        <span id="booking" class="booking" data="room.id" data-hystmodal="#myModal"
+              onclick="saveRoomId(this)">Забронировать</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="hystmodal" id="myModal" aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window" role="dialog" aria-modal="true" style="border-radius: 16px;">
+      <button data-hystclose class="hystmodal__close">Закрыть</button>
+      <div class="modal-wrapper" style="padding: 15px; flex-direction: column; align-items: flex-start; display: flex; border-radius: 16px;">
+        <div style="padding-bottom: 10px;">From date: <input type="text" id="datepicker1"></div>
+        <div style="padding-bottom: 10px;">To date: <input type="text" id="datepicker2"></div>
+        <div onclick="submit()" style="border-radius: 16px; border: 1px solid black; padding: 10px; align-self: flex-end;">Отправить</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function submit() {
+    console.log($("#datepicker1").val())
+  }
+
+  //make an array of disable dates
+  var dates = ["01-11-2022"];
+
+  function disableDates(date) {
+    var string = $.datepicker.formatDate('dd-mm-yy', date);
+    return [dates.indexOf(string) == -1];
+  }
+
+  $("#datepicker1").datepicker({
+    minDate: 0,
+    beforeShowDay: disableDates
+  });
+  $("#datepicker2").datepicker({
+    minDate: 0,
+    beforeShowDay: disableDates
+  });
+
+  let roomId;
+
+  function saveRoomId(elem) {
+    roomId = $(elem).attr('data');
+  }
+
+  const myModal = new HystModal({
+    linkAttributeName: "data-hystmodal"
+  });
+</script>
+</body>
+
+</html>
