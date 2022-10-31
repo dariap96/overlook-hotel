@@ -14,6 +14,7 @@ import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
+import { LeaveRequestComponent } from './leave-request/leave-request.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BookingComponent } from './booking/booking.component';
     AdminListComponent,
     AdminNotificationsComponent,
     UserComponent,
-    BookingComponent
+    BookingComponent,
+    LeaveRequestComponent
   ],
   imports: [
     BrowserModule,

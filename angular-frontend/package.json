@@ -21,6 +21,7 @@
     "angularjs-toaster": "^3.0.0",
     "izitoast": "^1.4.0",
     "ng2-izitoast": "^2.0.0",
+    "hystmodal": "^0.5.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -36,6 +37,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "hystmodal": "^0.5.1"
   }
 }

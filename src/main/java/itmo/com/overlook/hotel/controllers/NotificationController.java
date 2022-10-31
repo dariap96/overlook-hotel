@@ -38,6 +38,16 @@ public class NotificationController {
         return new ResponseEntity<>(notification, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Notification> createNotification(@RequestBody Notification notification) {
+        HttpHeaders headers = new HttpHeaders();
+        if (notification == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        this.notificationService.save(notification);
+        return new ResponseEntity<>(notification, headers, HttpStatus.CREATED);
+    }
+
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<Notification>> getAllNotifications() {
         List<Notification> notifications = this.notificationService.getAll();

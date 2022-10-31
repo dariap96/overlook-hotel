@@ -8,7 +8,8 @@ import {Room} from "../models/room";
 @Component({
   selector: 'app-director',
   templateUrl: './director.component.html',
-  styleUrls: ['./director.component.css']
+  styleUrls: ['./director.component.css'],
+
 })
 export class DirectorComponent implements OnInit {
 

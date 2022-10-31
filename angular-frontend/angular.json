@@ -25,7 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/hystmodal.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,7 +94,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "/assets/js/hystmodal.min.js"
+            ]
           }
         }
       }

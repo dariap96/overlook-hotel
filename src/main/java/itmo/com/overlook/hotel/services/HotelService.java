@@ -1,6 +1,7 @@
 package itmo.com.overlook.hotel.services;
 
 import itmo.com.overlook.hotel.entities.Hotel;
+import itmo.com.overlook.hotel.entities.Room;
 import itmo.com.overlook.hotel.repositories.HotelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,5 +16,10 @@ public class HotelService {
     public Hotel getHotel(Integer id) {
         log.info("IN Hotel Service getHotel");
         return hotelRepository.findById(id).get();
+    }
+
+    public void save(Hotel hotel) {
+        log.info("IN HotelService save {}", hotel);
+        hotelRepository.save(hotel);
     }
 }

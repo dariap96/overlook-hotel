@@ -1,1 +1,109 @@
-<p>room-constructor works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel editing</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="../js/hotelEditing.js"></script>
+  <script src="hystmodal.js"></script>
+  <script src="https://raw.githubusercontent.com/AddMoreScripts/hystModal/master/dist/hystmodal.min.js"></script>
+</head>
+
+<body>
+<main>
+  <div class="outer">
+    <div class="inner">
+      <div class="section hotel-settings">
+        <div class="inner-section">
+          Количество этажей: <input type="text" id="count-of-floors" class="input" required="false" value="{{hotel.stageCount}}"
+                                    placeholder="0" style="margin: 0 5px ;" onfocusout="changeFloors(this)" />
+        </div>
+        <div class="inner-section">
+          Количество номеров: <input type="text" id="count-of-rooms" class="input" required="false" value="{{hotel.roomCount}}"
+                                     placeholder="0" style="margin: 0 5px ;" onfocusout="changeRoomsCount(this)" />
+        </div>
+      </div>
+
+      <div id="rooms-sections">
+        <div *ngFor="let room of rooms">
+          <div class="section">
+            <div class="inner-section">
+              Номер: <input #number type="text" class="input" required="false" (focusout)="numberChanged(room)"
+                            placeholder="0" value="{{room.number}}" style="margin: 0 5px ;" />
+            </div>
+            <div class="inner-section">
+              Статус VIP: <input #vipStatus type="checkbox" class="cbx" id="cbx{{room.number}}" onfocusout="vipStatusChanged(this)"
+                                 style="display:none" value="{{(room.status == 'VIP') ? 1 : 0}}" />
+              <label for="cbx{{room.number}}" style="margin: 0 5px;" class="toggle"><span></span></label>
+            </div>
+            <div class="inner-section">
+              Цена: <input #price type="text" class="input" required="false" placeholder="0"
+                           style="margin: 0 5px ;" value="{{room.price}}" onfocusout="priceChanged(this)" />
+            </div>
+            <div class="inner-section">
+              Количество человек: <input #numberOfPeople type="text" class="input" required="false" placeholder="0"
+                                         style="margin: 0 5px ;" value="{{room.countPeople}}" onfocusout="personCountChanged(this)" />
+            </div>
+            <div class="inner-section">
+              Этаж: <input #floor type="text" class="input" required="false" placeholder="0"
+                           style="margin: 0 5px ;" value="{{room.stage}}" onfocusout="floorChanged(this)" />
+            </div>
+            <div class="inner-section" data-hystmodal="#myModal">
+              Удалить
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    fetchHotelInfo()
+    fetchRooms()
+  </script>
+</main>
+
+<div class="hystmodal" id="myModal" aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window" role="dialog" aria-modal="true" style="border-radius: 16px;">
+      <button data-hystclose class="hystmodal__close">Закрыть</button>
+      <div class="modal-wrapper" >
+        <div class="section">
+          <div class="inner-section">
+            Номер: <input #numberCreate type="text" class="input" required="false"
+                          placeholder="0" style="margin: 0 5px ;" />
+          </div>
+          <div class="inner-section">
+            Статус VIP: <input #vipStatusCreate type="checkbox" class="cbx" id="cbx-1" onfocusout="vipStatusChanged(this)"
+                               style="display:none" />
+            <label for="cbx-1" style="margin: 0 5px;" class="toggle"><span></span></label>
+          </div>
+          <div class="inner-section">
+            Цена: <input #priceCreate type="text" class="input" required="false" placeholder="0"
+                         style="margin: 0 5px ;" onfocusout="priceChanged(this)" />
+          </div>
+          <div class="inner-section">
+            Количество человек: <input #numberOfPeopleCreate type="text" class="input" required="false" placeholder="0"
+                                       style="margin: 0 5px ;" onfocusout="personCountChanged(this)" />
+          </div>
+          <div class="inner-section">
+            Этаж: <input #floorCreate type="text" class="input" required="false" placeholder="0"
+                         style="margin: 0 5px ;" onfocusout="floorChanged(this)" />
+          </div>
+        </div>
+        <div (click)="createNewRoom()">
+          Отправить
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<script>
+</script>
+
+</html>

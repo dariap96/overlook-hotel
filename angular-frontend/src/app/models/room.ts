@@ -7,4 +7,5 @@ export class Room {
   clientid: number;
   price: number;
   client: number;
+  available: boolean;
 }
