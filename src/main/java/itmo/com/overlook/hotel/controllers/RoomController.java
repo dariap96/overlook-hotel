@@ -79,8 +79,8 @@ public class RoomController {
     }
 
    @RequestMapping(value = "/vip", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Room[]> getVipRooms(Room[] rooms) {
-        Room[] vipRooms = this.roomService.getVipRooms(rooms);
+    public ResponseEntity<Room[]> getVipRooms() {
+        Room[] vipRooms = this.roomService.getVipRooms();
        return new ResponseEntity<>(vipRooms, HttpStatus.OK);
    }
 
