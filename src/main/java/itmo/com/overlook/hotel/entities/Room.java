@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "rooms")
@@ -41,6 +43,9 @@ public class Room {
 
     @OneToOne(mappedBy = "room", cascade = {CascadeType.ALL})
     private User client;
+
+    @OneToMany(mappedBy = "room")
+    private Set<RoomDate> roomDates = new HashSet<>();
 
     public Room(Integer id, Integer number, Integer countPeople, Integer stage,
                 Double price, String status, User client, boolean available) {
