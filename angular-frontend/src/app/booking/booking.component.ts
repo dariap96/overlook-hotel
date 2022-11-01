@@ -3,10 +3,6 @@ import {Room} from "../models/room";
 import {RoomConstructorService} from "../services/room-constructor.service";
 import {Observable} from "rxjs";
 
-const { JSDOM } = require( "jsdom" );
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
-
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
