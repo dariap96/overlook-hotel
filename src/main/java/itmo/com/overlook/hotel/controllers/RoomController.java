@@ -36,15 +36,16 @@ public class RoomController {
         return new ResponseEntity<>(rooms, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Room> getRoomByClientid(@PathVariable("id") Integer clientId) {
-        Integer roomId = this.roomService.getRoomByClientId(clientId).getId();
-        if (clientId == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        Room room = this.roomService.getById(roomId);
-        return new ResponseEntity<>(room, HttpStatus.OK);
-    }
+//   судя по внешнему виду не работает ))) но скорее всего оно нам и не нужно
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+//    public ResponseEntity<Room> getRoomByClientid(@PathVariable("id") Integer clientId) {
+//        Integer roomId = this.roomService.getRoomByClientId(clientId).getId();
+//        if (clientId == null) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//        Room room = this.roomService.getById(roomId);
+//        return new ResponseEntity<>(room, HttpStatus.OK);
+//    }
 
    /* @RequestMapping(value = "{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Room> saveRoom(@PathVariable("id") Integer id, @RequestBody Room room) {
