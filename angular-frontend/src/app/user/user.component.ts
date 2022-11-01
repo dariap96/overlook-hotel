@@ -1,28 +1,61 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {TokenStorageService} from "../services/token-storage.service";
 import {UserService} from "../services/user.service";
 import {User} from "../models/user";
+import {NotificationService} from "../services/notification.service";
+import {Notification} from "../models/notification";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css', './hystmodal.min.css']
 })
 export class UserComponent implements OnInit {
 
-  public currentUser: any;
-  public userData: User;
+  public currentUser: User;
+  public show = false;
+
+  @ViewChild("notificationText")
+  notificationText: ElementRef
 
   constructor(private userService: UserService,
-              private token: TokenStorageService) { }
+              private token: TokenStorageService,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
     this.userService.getUser(this.currentUser.id).subscribe(
       data=> {
-        this.userData = data;
+        this.currentUser = data;
       }
     );
   }
 
+  sendNotification() {
+    let notification = new Notification()
+    const text = this.notificationText.nativeElement.value
+    notification.info = text
+    notification.fromClientID = this.currentUser.id
+    this.notificationService.postNotification(notification).subscribe(
+      () => console.log('Posting correctly'),
+      error => console.warn(error)
+    )
+    window.location.reload();
+  }
+
+
+  showPopUp() {
+    this.show = true;
+    console.log(this.show)
+  }
+
+  closePopUp() {
+    this.show = false
+  }
+
+  closePopUpOverlay(e: any) {
+    if (e.target.classList.contains('overlay')) {
+      this.show = false;
+    }
+  }
 }

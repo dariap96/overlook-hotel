@@ -16,14 +16,14 @@
           <div class="profile-info-only">
             <div class="profile-info-stack-value">
               <span class="name-title profile-info-inner">ФИО</span>
-              <span class="name-value">{{currentUser.username}}</span>
+              <span class="name-value">{{currentUser.name + currentUser.surname}}</span>
             </div>
           </div>
 
           <div class="profile-info-stack-hotel">
             <div class="profile-info-stack-value">
               <span class="hotel-overview profile-info-inner">Мой номер комнаты</span>
-              <span class="hotel-overview-value">{{userData.roomNumber}}</span>
+              <span class="hotel-overview-value">{{currentUser.roomNumber}}</span>
             </div>
 
             <div class="profile-info-stack-value">
@@ -47,8 +47,8 @@
               <a href="/booking">Создать бронь</a>
             </div>
 
-            <div class="section-content">
-              <a href="#">Оставить заявку</a>
+            <div class="section-content" (click)="showPopUp()">
+              <span>Оставить заявку</span>
             </div>
 
             <div class="section-content">
@@ -64,5 +64,15 @@
     </div>
   </div>
 </main>
+<div class="overlay" *ngIf="show" (click)="closePopUpOverlay($event)">
+  <div class="content">
+    <div class="section">
+      <textarea #notificationText style="min-width: 40vw; min-height: 20vh;"> </textarea>
+      <div class="new-modal-button" (click)="sendNotification(); closePopUp()">
+        Отправить
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
