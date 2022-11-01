@@ -29,7 +29,7 @@ export class RoomConstructorService {
   }
 
   public deleteRoom(room: Room) {
-    return this.http.delete("http://localhost:8080/api/rooms/room/"+room.id);
+    return this.http.delete("http://localhost:8080/api/rooms/"+room.id);
   }
 
   public getHotel(): Observable<Hotel> {

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Room} from "../models/room";
 import {RoomConstructorService} from "../services/room-constructor.service";
 import {Hotel} from "../models/hotel";
@@ -31,20 +31,39 @@ export class RoomConstructorComponent implements OnInit {
   @ViewChildren('floor')
   floors: QueryList<ElementRef>;
 
+  @ViewChild('numberCreate')
+  number: ElementRef;
+
+  @ViewChild('vipStatusCreate')
+  vipStatus: ElementRef;
+
+  @ViewChild('priceCreate')
+  price: ElementRef;
+
+  @ViewChild('numberOfPeopleCreate')
+  numberOfPeople: ElementRef;
+
+  @ViewChild('floorCreate')
+  floor: ElementRef;
+
+  @ViewChild('stageCount')
+  stageCount: ElementRef;
+
+
   constructor(private roomConstructorService: RoomConstructorService) {
   }
 
   ngOnInit(): void {
     this.roomConstructorService.getAllRooms().subscribe(data => {
-      this.rooms = data;
+      this.rooms = data.sort((room1, room2) => room1.number - room2.number);
     });
     this.roomConstructorService.getHotel().subscribe(data => {
       this.hotel = data;
     });
   }
 
-  postRoom() {
-    this.roomConstructorService.postRoom(this.room).subscribe(
+  postRoom(room: Room) {
+    this.roomConstructorService.postRoom(room).subscribe(
       () => console.log('Posting correctly'),
       error => console.warn(error)
     )
@@ -60,8 +79,8 @@ export class RoomConstructorComponent implements OnInit {
   }
 
 
-  deleteRoom() {
-    this.roomConstructorService.deleteRoom(this.room).subscribe(
+  deleteRoom(room: Room) {
+    this.roomConstructorService.deleteRoom(room).subscribe(
       () => console.log('Deleting correctly'),
       error => console.warn(error)
     )
@@ -76,6 +95,8 @@ export class RoomConstructorComponent implements OnInit {
     this.reloadPage()
   }
 
+
+
   numberChanged(room: Room) {
     let index = this.rooms.indexOf(room)
     let newValue = this.numbers.get(index)?.nativeElement.value
@@ -86,13 +107,7 @@ export class RoomConstructorComponent implements OnInit {
   statusChanged(room: Room) {
     let index = this.rooms.indexOf(room)
     let newValue = this.vipStatuses.get(index)?.nativeElement.checked
-    if (newValue)
-    {
-      room.status = "VIP";
-    }
-    else{
-      room.status = "normal";
-    }
+    room.status = newValue
 
     this.updateRoom(room)
   }
@@ -118,11 +133,27 @@ export class RoomConstructorComponent implements OnInit {
   }
 
   removeRoom(room: Room) {
-
+    this.deleteRoom(room)
+    this.hotel.roomCount-=1
+    this.updateHotel()
   }
 
   createNewRoom() {
-
+    const number = this.number.nativeElement.value
+    const vipStatus = this.vipStatus.nativeElement.checked
+    const price = this.price.nativeElement.value
+    const numberOfPeople = this.numberOfPeople.nativeElement.value
+    const stage = this.floor.nativeElement.value
+    let room = new Room()
+    room.number = number
+    room.price = price
+    room.status = vipStatus
+    room.countPeople = numberOfPeople
+    room.stage = stage
+    room.available = true
+    this.postRoom(room)
+    this.hotel.roomCount+=1
+    this.updateHotel()
   }
 
   showPopUp() {
@@ -137,7 +168,6 @@ export class RoomConstructorComponent implements OnInit {
     if (e.target.classList.contains('overlay')) {
       this.show = false;
     }
-
   }
 
   setLabelSelected(room: Room, event: any) {
@@ -148,13 +178,19 @@ export class RoomConstructorComponent implements OnInit {
   }
 
   setInitialSelected(room: Room, event: any) {
-    event.target.checked = room.status == 'VIP'
+    event.target.checked = room.status
     let index = this.rooms.indexOf(room)
     let elem = this.vipStatuses.get(index)!.nativeElement
-    elem.checked = room.status == 'VIP'
+    elem.checked = room.status
   }
 
   reloadPage() {
     window.location.reload()
+  }
+
+  changeFloors() {
+    const stageCount = this.stageCount.nativeElement.value
+    this.hotel.stageCount = stageCount
+    this.updateHotel()
   }
 }

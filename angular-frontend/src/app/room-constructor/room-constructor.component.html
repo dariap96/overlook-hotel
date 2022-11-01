@@ -18,12 +18,12 @@
     <div class="inner">
       <div class="section hotel-settings">
         <div class="inner-section">
-          Количество этажей: <input type="text" id="count-of-floors" class="input" required="false" value="{{hotel.stageCount}}"
-                                    placeholder="0" style="margin: 0 5px ;" onfocusout="changeFloors(this)" />
+          Количество этажей: <input #stageCount type="text" id="count-of-floors" class="input" required="false" value="{{hotel.stageCount}}"
+                                    placeholder="0" style="margin: 0 5px ;" (focusout)="changeFloors()" />
         </div>
         <div class="inner-section">
           Количество номеров: <input type="text" id="count-of-rooms" class="input" required="false" value="{{hotel.roomCount}}"
-                                     placeholder="0" style="margin: 0 5px ;" onfocusout="changeRoomsCount(this)" />
+                                     placeholder="0" style="margin: 0 5px ;" disabled />
         </div>
       </div>
 
@@ -35,21 +35,21 @@
                             placeholder="0" value="{{room.number}}" style="margin: 0 5px ;" />
             </div>
             <div class="inner-section">
-              Статус VIP: <input #vipStatus type="checkbox" class="cbx" id="cbx{{room.number}}" (change)="setLabelSelected(room, $event)" onfocusout="vipStatusChanged(this)"
+              Статус VIP: <input #vipStatus type="checkbox" class="cbx" id="cbx{{room.number}}" (change)="setLabelSelected(room, $event); statusChanged(room)"
                                  style="display:none" [(ngModel)]="room.status" />
               <label for="cbx{{room.number}}" style="margin: 0 5px;" class="toggle"><span></span></label>
             </div>
             <div class="inner-section">
               Цена: <input #price type="text" class="input" required="false" placeholder="0"
-                           style="margin: 0 5px ;" value="{{room.price}}" onfocusout="priceChanged(this)" />
+                           style="margin: 0 5px ;" value="{{room.price}}" (focusout)="priceChanged(room)" />
             </div>
             <div class="inner-section">
               Количество человек: <input #numberOfPeople type="text" class="input" required="false" placeholder="0"
-                                         style="margin: 0 5px ;" value="{{room.countPeople}}" onfocusout="personCountChanged(this)" />
+                                         style="margin: 0 5px ;" value="{{room.countPeople}}" (focusout)="countPeopleChanged(room)" />
             </div>
             <div class="inner-section">
               Этаж: <input #floor type="text" class="input" required="false" placeholder="0"
-                           style="margin: 0 5px ;" value="{{room.stage}}" onfocusout="floorChanged(this)" />
+                           style="margin: 0 5px ;" value="{{room.stage}}" (focusout)="stageChanged(room)" />
             </div>
             <div class="inner-section" (click)="removeRoom(room)" >
               Удалить
