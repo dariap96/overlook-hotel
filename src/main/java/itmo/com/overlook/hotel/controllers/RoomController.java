@@ -3,6 +3,7 @@ package itmo.com.overlook.hotel.controllers;
 import itmo.com.overlook.hotel.entities.Room;
 import itmo.com.overlook.hotel.services.RoomService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +14,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequiredArgsConstructor
 @RestController
+@Slf4j
 @RequestMapping("/api/rooms")
 public class RoomController {
     private final RoomService roomService;
@@ -83,6 +85,4 @@ public class RoomController {
         Room[] vipRooms = this.roomService.getVipRooms();
        return new ResponseEntity<>(vipRooms, HttpStatus.OK);
    }
-
-//эта штука пока не работает
 }

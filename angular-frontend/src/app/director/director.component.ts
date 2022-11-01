@@ -8,15 +8,14 @@ import {Room} from "../models/room";
 @Component({
   selector: 'app-director',
   templateUrl: './director.component.html',
-  styleUrls: ['./director.component.css'],
-
+  styleUrls: ['./director.component.css']
 })
 export class DirectorComponent implements OnInit {
 
   public currentUser: any;
   public hotel!: Hotel;
   public rooms!: Room[];
-  public room!: Room;
+  public vipRooms: Room[];
 
   constructor(private directorService: DirectorService,
               private token: TokenStorageService,
@@ -33,17 +32,14 @@ export class DirectorComponent implements OnInit {
     )
     this.roomConstructorService.getAllRooms().subscribe(
       (data) => {
-        console.log("lalka1");
         this.rooms = data;
-        console.log("lalka2");
-        console.log(data);
-        console.log(this.rooms);
         }
     )
-    this.roomConstructorService.getRoomById(2).subscribe(
+    this.roomConstructorService.getVipRooms().subscribe(
       (data) => {
-        this.room = data;
+        this.vipRooms = data;
       }
     )
+
   }
 }

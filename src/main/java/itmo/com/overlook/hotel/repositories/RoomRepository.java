@@ -12,5 +12,4 @@ public interface RoomRepository extends JpaRepository<Room, Integer> {
 
     @Query("SELECT r FROM Room r WHERE r.status = 'vip'")
     Room[] getVipRooms();
-    //не работаееЕЕЕт
 }

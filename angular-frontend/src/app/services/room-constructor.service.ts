@@ -35,8 +35,13 @@ export class RoomConstructorService {
   public getHotel(): Observable<Hotel> {
     return this.http.get<Hotel>("http://localhost:8080/api/hotel");
   }
+
   public updateHotel(hotel: Hotel) {
     return this.http.patch("http://localhost:8080/api/hotel", hotel);
+  }
+
+  public getVipRooms(): Observable<Room[]>{
+    return this.http.get<Room[]>("http://localhost:8080/api/rooms/vip");
   }
 
 }
