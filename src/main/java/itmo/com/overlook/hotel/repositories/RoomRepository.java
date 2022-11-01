@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface RoomRepository extends JpaRepository<Room, Integer> {
     Room getRoomByClient(User user);
 
-    @Query("SELECT r FROM Room r WHERE r.status = 'vip'")
+    @Query("SELECT r FROM Room r WHERE r.status = true")
     Room[] getVipRooms();
 }
