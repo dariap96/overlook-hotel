@@ -3,8 +3,6 @@ import {Room} from "../models/room";
 import {RoomConstructorService} from "../services/room-constructor.service";
 import {Hotel} from "../models/hotel";
 import { ViewChildren, QueryList } from '@angular/core';
-const mdbreact = require('hystmodal/dist/hystmodal.min.js');
-const { HystModal } = mdbreact;
 
 @Component({
   selector: 'app-room-constructor',
@@ -16,6 +14,7 @@ export class RoomConstructorComponent implements OnInit {
   public rooms!: Array<Room>;
   public room!: Room;
   public hotel!: Hotel;
+  public show = false;
 
   @ViewChildren('number')
   numbers: QueryList<ElementRef>;
@@ -42,9 +41,6 @@ export class RoomConstructorComponent implements OnInit {
     this.roomConstructorService.getHotel().subscribe(data => {
       this.hotel = data;
     });
-    new HystModal({
-      linkAttributeName: "data-hystmodal"
-    });
   }
 
   postRoom() {
@@ -52,7 +48,7 @@ export class RoomConstructorComponent implements OnInit {
       () => console.log('Posting correctly'),
       error => console.warn(error)
     )
-    window.location.reload();
+    this.reloadPage();
   }
 
   updateRoom(room: Room) {
@@ -60,7 +56,7 @@ export class RoomConstructorComponent implements OnInit {
       () => console.log('Updating correctly'),
       error => console.warn(error)
     )
-    window.location.reload();
+    this.reloadPage()
   }
 
 
@@ -69,7 +65,7 @@ export class RoomConstructorComponent implements OnInit {
       () => console.log('Deleting correctly'),
       error => console.warn(error)
     )
-    window.location.reload();
+    this.reloadPage();
   }
 
   updateHotel() {
@@ -77,7 +73,7 @@ export class RoomConstructorComponent implements OnInit {
       () => console.log('Updating correctly'),
       error => console.warn(error)
     )
-    window.location.reload();
+    this.reloadPage()
   }
 
   numberChanged(room: Room) {
@@ -89,7 +85,7 @@ export class RoomConstructorComponent implements OnInit {
 
   statusChanged(room: Room) {
     let index = this.rooms.indexOf(room)
-    let newValue = this.vipStatuses.get(index)?.nativeElement.value
+    let newValue = this.vipStatuses.get(index)?.nativeElement.checked
     if (newValue)
     {
       room.status = "VIP";
@@ -121,7 +117,44 @@ export class RoomConstructorComponent implements OnInit {
     this.updateRoom(room)
   }
 
+  removeRoom(room: Room) {
+
+  }
+
   createNewRoom() {
 
+  }
+
+  showPopUp() {
+    this.show = true;
+  }
+
+  closePopUp() {
+    this.show = false
+  }
+
+  closePopUpOverlay(e: any) {
+    if (e.target.classList.contains('overlay')) {
+      this.show = false;
+    }
+
+  }
+
+  setLabelSelected(room: Room, event: any) {
+    event.target.checked = !event.target.checked
+    let index = this.rooms.indexOf(room)
+    let elem = this.vipStatuses.get(index)!.nativeElement
+    elem.checked = !elem.checked
+  }
+
+  setInitialSelected(room: Room, event: any) {
+    event.target.checked = room.status == 'VIP'
+    let index = this.rooms.indexOf(room)
+    let elem = this.vipStatuses.get(index)!.nativeElement
+    elem.checked = room.status == 'VIP'
+  }
+
+  reloadPage() {
+    window.location.reload()
   }
 }
