@@ -35,8 +35,8 @@
                             placeholder="0" value="{{room.number}}" style="margin: 0 5px ;" />
             </div>
             <div class="inner-section">
-              Статус VIP: <input #vipStatus type="checkbox" class="cbx" id="cbx{{room.number}}" onfocusout="vipStatusChanged(this)"
-                                 style="display:none" value="{{(room.status == 'VIP') ? 1 : 0}}" />
+              Статус VIP: <input #vipStatus type="checkbox" class="cbx" id="cbx{{room.number}}" (change)="setLabelSelected(room, $event)" onfocusout="vipStatusChanged(this)"
+                                 style="display:none" [(ngModel)]="room.status" />
               <label for="cbx{{room.number}}" style="margin: 0 5px;" class="toggle"><span></span></label>
             </div>
             <div class="inner-section">
@@ -51,7 +51,7 @@
               Этаж: <input #floor type="text" class="input" required="false" placeholder="0"
                            style="margin: 0 5px ;" value="{{room.stage}}" onfocusout="floorChanged(this)" />
             </div>
-            <div class="inner-section" data-hystmodal="#myModal">
+            <div class="inner-section" (click)="removeRoom(room)" >
               Удалить
             </div>
           </div>
@@ -59,48 +59,45 @@
       </div>
     </div>
   </div>
-
-  <script>
-    fetchHotelInfo()
-    fetchRooms()
-  </script>
 </main>
 
-<div class="hystmodal" id="myModal" aria-hidden="true">
-  <div class="hystmodal__wrap">
-    <div class="hystmodal__window" role="dialog" aria-modal="true" style="border-radius: 16px;">
-      <button data-hystclose class="hystmodal__close">Закрыть</button>
-      <div class="modal-wrapper" >
-        <div class="section">
-          <div class="inner-section">
-            Номер: <input #numberCreate type="text" class="input" required="false"
-                          placeholder="0" style="margin: 0 5px ;" />
-          </div>
-          <div class="inner-section">
-            Статус VIP: <input #vipStatusCreate type="checkbox" class="cbx" id="cbx-1" onfocusout="vipStatusChanged(this)"
-                               style="display:none" />
-            <label for="cbx-1" style="margin: 0 5px;" class="toggle"><span></span></label>
-          </div>
-          <div class="inner-section">
-            Цена: <input #priceCreate type="text" class="input" required="false" placeholder="0"
-                         style="margin: 0 5px ;" onfocusout="priceChanged(this)" />
-          </div>
-          <div class="inner-section">
-            Количество человек: <input #numberOfPeopleCreate type="text" class="input" required="false" placeholder="0"
-                                       style="margin: 0 5px ;" onfocusout="personCountChanged(this)" />
-          </div>
-          <div class="inner-section">
-            Этаж: <input #floorCreate type="text" class="input" required="false" placeholder="0"
-                         style="margin: 0 5px ;" onfocusout="floorChanged(this)" />
-          </div>
-        </div>
-        <div (click)="createNewRoom()">
-          Отправить
-        </div>
+<div class="overlay" *ngIf="show" (click)="closePopUpOverlay($event)">
+  <div class="content">
+    <div class="section">
+      <div class="inner-section">
+        Номер: <input #numberCreate type="text" class="input" required="false"
+                      placeholder="0" style="margin: 0 5px ;" />
       </div>
+      <div class="inner-section">
+        Статус VIP: <input #vipStatusCreate type="checkbox" class="cbx" id="cbx-1" onfocusout="vipStatusChanged(this)"
+                           style="display:none" />
+        <label for="cbx-1" style="margin: 0 5px;" class="toggle"><span></span></label>
+      </div>
+      <div class="inner-section">
+        Цена: <input #priceCreate type="text" class="input" required="false" placeholder="0"
+                     style="margin: 0 5px ;" onfocusout="priceChanged(this)" />
+      </div>
+      <div class="inner-section">
+        Количество человек: <input #numberOfPeopleCreate type="text" class="input" required="false" placeholder="0"
+                                   style="margin: 0 5px ;" onfocusout="personCountChanged(this)" />
+      </div>
+      <div class="inner-section">
+        Этаж: <input #floorCreate type="text" class="input" required="false" placeholder="0"
+                     style="margin: 0 5px ;" onfocusout="floorChanged(this)" />
+      </div>
+    </div>
+    <div class="new-modal-button" (click)="createNewRoom(); closePopUp()">
+      Отправить
     </div>
   </div>
 </div>
+
+<div class="add-new-button" (click)="showPopUp()">
+  <div class="new-button">
+    +
+  </div>
+</div>
+
 </body>
 
 <script>

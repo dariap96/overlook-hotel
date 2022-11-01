@@ -3,7 +3,7 @@ export class Room {
   number: number;
   countPeople: number;
   stage: number;
-  status: string;
+  status: boolean;
   clientid: number;
   price: number;
   client: number;
