@@ -19,37 +19,19 @@
   </h1>
 </header>
 <main id="main">
-  <section>
+  <section *ngFor="let room of this.rooms">
     <img src="">
-    <span class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A facilis exercitationem
-                laborum tenetur eos
-                minima non debitis rem qui dolor repudiandae quibusdam nostrum provident molestiae animi et, at
-                asperiores. Repudiandae!</span>
+    <span class="main-text">Описание самой лучшей комнаты на свете</span>
     <div class="prices-and-all">
       <div class="prices-and-all-inner">
-        <span class="price">Цена: <span>1000$</span></span>
-        <span class="price">Количество комнат: <span>500</span></span>
+        <span class="price">Цена: <span>{{room.price}}</span></span>
+        <span class="price">Количество человек: <span>{{room.countPeople}}</span></span>
         <span id="booking" class="booking" data="room.id" data-hystmodal="#myModal"
               onclick="saveRoomId(this)">Забронировать</span>
       </div>
     </div>
   </section>
 
-  <section>
-    <img src="">
-    <span class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A facilis exercitationem
-                laborum tenetur eos
-                minima non debitis rem qui dolor repudiandae quibusdam nostrum provident molestiae animi et, at
-                asperiores. Repudiandae!</span>
-    <div class="prices-and-all">
-      <div class="prices-and-all-inner">
-        <span class="price">Цена: <span>1000$</span></span>
-        <span class="price">Количество комнат: <span>500</span></span>
-        <span id="booking" class="booking" data="room.id" data-hystmodal="#myModal"
-              onclick="saveRoomId(this)">Забронировать</span>
-      </div>
-    </div>
-  </section>
 </main>
 
 <div class="hystmodal" id="myModal" aria-hidden="true">
