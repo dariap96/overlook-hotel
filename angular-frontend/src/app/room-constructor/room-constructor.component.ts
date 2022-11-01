@@ -150,7 +150,6 @@ export class RoomConstructorComponent implements OnInit {
     room.status = vipStatus
     room.countPeople = numberOfPeople
     room.stage = stage
-    room.available = true
     this.postRoom(room)
     this.hotel.roomCount+=1
     this.updateHotel()
