@@ -36,14 +36,12 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
-    //in progress
-//    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-//    public ResponseEntity<List<Booking>> getBookingsByClientid(@PathVariable("id") Integer clientId) {
-//        Integer[] bookingIds = this.bookingService.getBookingsByClientId(clientId).getId();
-//        if (clientId == null) {
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//        Booking booking = this.bookingService.getById(bookingId);
-//        return new ResponseEntity<>(booking, HttpStatus.OK);
-//    }
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<Booking>> getBookingsByClientid(@PathVariable("id") Integer clientId) {
+        List<Booking> bookings = this.bookingService.getBookingsByClientId(clientId);
+        if (clientId == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(bookings, HttpStatus.OK);
+    }
 }
