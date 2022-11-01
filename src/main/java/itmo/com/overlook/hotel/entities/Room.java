@@ -3,11 +3,8 @@ package itmo.com.overlook.hotel.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "rooms")
@@ -33,9 +30,6 @@ public class Room {
     @Column(name = "price")
     private Double price;
 
-    @Column(name="available")
-    private boolean available;
-
     @NotNull
     @Column(name = "status", nullable = false)
     private boolean status;
@@ -47,7 +41,7 @@ public class Room {
     private Set<RoomDate> roomDates = new HashSet<>();*/
 
     public Room(Integer id, Integer number, Integer countPeople, Integer stage,
-                Double price, boolean status, User client, boolean available) {
+                Double price, boolean status, User client) {
         this.id = id;
         this.number = number;
         this.countPeople = countPeople;
@@ -55,7 +49,6 @@ public class Room {
         this.price = price;
         this.status = status;
         this.client = client;
-        this.available = available;
     }
 
 }
