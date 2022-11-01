@@ -15,6 +15,7 @@ import { AdminNotificationsComponent } from './admin-notifications/admin-notific
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
 import { LeaveRequestComponent } from './leave-request/leave-request.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -30,11 +31,12 @@ import { LeaveRequestComponent } from './leave-request/leave-request.component';
     BookingComponent,
     LeaveRequestComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

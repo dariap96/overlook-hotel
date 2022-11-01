@@ -35,8 +35,7 @@ public class Room {
 
     @NotNull
     @Column(name = "status", nullable = false)
-    @Type(type = "org.hibernate.type.TextType")
-    private String status;
+    private boolean status;
 
     @OneToOne(mappedBy = "room", cascade = {CascadeType.ALL})
     private User client;
@@ -45,7 +44,7 @@ public class Room {
     private Set<RoomDate> roomDates = new HashSet<>();*/
 
     public Room(Integer id, Integer number, Integer countPeople, Integer stage,
-                Double price, String status, User client, boolean available) {
+                Double price, boolean status, User client, boolean available) {
         this.id = id;
         this.number = number;
         this.countPeople = countPeople;
