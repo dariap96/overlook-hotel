@@ -36,7 +36,7 @@
             </div>
             <div class="inner-section">
               Статус VIP: <input #vipStatus type="checkbox" class="cbx" id="cbx{{room.number}}" (change)="setLabelSelected(room, $event)" onfocusout="vipStatusChanged(this)"
-                                 style="display:none" [(ngModel)]="room.available" />
+                                 style="display:none" [(ngModel)]="room.status" />
               <label for="cbx{{room.number}}" style="margin: 0 5px;" class="toggle"><span></span></label>
             </div>
             <div class="inner-section">
