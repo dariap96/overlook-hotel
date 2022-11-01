@@ -33,9 +33,6 @@ public class Room {
     @Column(name = "price")
     private Double price;
 
-    @Column(name="available")
-    private boolean available;
-
     @NotNull
     @Column(name = "status", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
@@ -56,7 +53,6 @@ public class Room {
         this.price = price;
         this.status = status;
         this.client = client;
-        this.available = available;
     }
 
 }
