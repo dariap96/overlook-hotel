@@ -58,4 +58,8 @@ export class UserComponent implements OnInit {
       this.show = false;
     }
   }
+
+  routeToBooking() {
+    window.location.replace("/booking")
+  }
 }
