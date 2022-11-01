@@ -16,6 +16,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+    console.log(this.currentUser);
   }
 
 }
