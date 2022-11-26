@@ -1,14 +1,11 @@
 package itmo.com.overlook.hotel.controllers;
 
 import itmo.com.overlook.hotel.DTOs.NotificationAdminDTO;
-import itmo.com.overlook.hotel.DTOs.NotificationAdminDTOMapper;
-import itmo.com.overlook.hotel.DTOs.UserDTO;
-import itmo.com.overlook.hotel.DTOs.UserDTOMapper;
+import itmo.com.overlook.hotel.DTOs.NotificationDTO;
+import itmo.com.overlook.hotel.DTOs.NotificationDTOMapper;
 import itmo.com.overlook.hotel.entities.Notification;
-import itmo.com.overlook.hotel.entities.Room;
-import itmo.com.overlook.hotel.entities.User;
 import itmo.com.overlook.hotel.services.NotificationService;
-import itmo.com.overlook.hotel.services.RoomService;
+import itmo.com.overlook.hotel.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -25,7 +22,7 @@ import java.util.List;
 @RequestMapping("/api/notifications")
 public class NotificationController {
     private final NotificationService notificationService;
-    private final NotificationAdminDTOMapper notificationAdminDTOMapper = new NotificationAdminDTOMapper();
+    private final NotificationDTOMapper notificationDTOMapper;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Notification> getNotificationById(@PathVariable("id") Integer id) {
@@ -39,12 +36,12 @@ public class NotificationController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Notification> createNotification(@RequestBody Notification notification) {
+    public ResponseEntity<NotificationDTO> createNotification(@RequestBody NotificationDTO notification) {
         HttpHeaders headers = new HttpHeaders();
         if (notification == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        this.notificationService.save(notification);
+        this.notificationService.save(notificationDTOMapper.toEntity(notification));
         return new ResponseEntity<>(notification, headers, HttpStatus.CREATED);
     }
 
@@ -60,7 +57,7 @@ public class NotificationController {
         List<Notification> notifications = this.notificationService.getAllAdmin();
         List<NotificationAdminDTO> notificationAdminDTOS = new ArrayList<NotificationAdminDTO>();
         for (Notification i: notifications) {
-            notificationAdminDTOS.add(this.notificationAdminDTOMapper.toDTO(i));
+            notificationAdminDTOS.add(this.notificationDTOMapper.toDTO(i));
         }
         return new ResponseEntity<>(notificationAdminDTOS, headers, HttpStatus.OK);
     }

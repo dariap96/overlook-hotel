@@ -27,6 +27,7 @@ export class UserComponent implements OnInit {
     this.userService.getUser(this.currentUser.id).subscribe(
       data=> {
         this.currentUser = data;
+        console.log(this.currentUser)
       }
     );
   }
@@ -35,7 +36,7 @@ export class UserComponent implements OnInit {
     let notification = new Notification()
     const text = this.notificationText.nativeElement.value
     notification.info = text
-    notification.fromClientID = this.currentUser.id
+    notification.fromClientId = this.currentUser.id
     this.notificationService.postNotification(notification).subscribe(
       () => console.log('Posting correctly'),
       error => console.warn(error)

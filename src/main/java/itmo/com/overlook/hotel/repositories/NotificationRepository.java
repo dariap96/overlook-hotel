@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface NotificationRepository extends JpaRepository<Notification, Integer> {
-    Notification getNotificationByFromclientid(Integer id);
+    Notification getNotificationByFromClientId(Integer id);
 
-    @Query("SELECT n FROM Notification n WHERE n.toclientid is null")
+    @Query("SELECT n FROM Notification n WHERE n.toClientId is null and n.fromClientId is not null")
     List<Notification> findAllAdmin();
 }

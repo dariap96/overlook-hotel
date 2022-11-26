@@ -20,21 +20,20 @@ public class Notification {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fromclientid")
-    private User fromclientid;
+    private User fromClientId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "toclientid")
-    private User toclientid;
+    private User toClientId;
 
     @NotNull
     @Column(name = "info", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
     private String info;
 
-    public Notification(Integer id, User fromclientid, User toclientid, String info) {
-        this.id = id;
-        this.fromclientid = fromclientid;
-        this.toclientid = toclientid;
+    public Notification(User fromClientId, User toClientId, String info) {
+        this.fromClientId = fromClientId;
+        this.toClientId = toClientId;
         this.info = info;
     }
 }

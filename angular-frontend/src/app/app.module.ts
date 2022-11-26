@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
 import {FormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AppComponent,

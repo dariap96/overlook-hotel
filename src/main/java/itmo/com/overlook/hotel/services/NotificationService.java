@@ -41,6 +41,6 @@ public class NotificationService {
 
     public Notification getNotificationByFromclientid(Integer id) {
         log.info("IN RoomService getAll");
-        return notificationRepository.getNotificationByFromclientid(id);
+        return notificationRepository.getNotificationByFromClientId(id);
     }
 }

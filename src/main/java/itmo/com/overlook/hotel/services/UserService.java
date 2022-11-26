@@ -20,8 +20,12 @@ public class UserService {
     private final RoleRepository roleRepository;
 
     public User getById(Integer id) {
-        log.info("IN UserService getById {}", id);
-        return userRepository.findById(id).get();
+        if (id != null) {
+            log.info("IN UserService getById {}", id);
+            return userRepository.findById(id).get();
+        }
+        log.info("IN UserService getById {} returned null", id);
+        return null;
     }
 
     public void save(User user) {
