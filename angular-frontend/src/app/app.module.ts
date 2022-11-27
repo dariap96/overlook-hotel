@@ -15,7 +15,9 @@ import { AdminNotificationsComponent } from './admin-notifications/admin-notific
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
 import {FormsModule} from "@angular/forms";
-
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -30,12 +32,18 @@ import {FormsModule} from "@angular/forms";
     UserComponent,
     BookingComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserModule,
+    NgxMatTimepickerModule,
+    FormsModule,
+    NgxMatDatetimePickerModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+  ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
