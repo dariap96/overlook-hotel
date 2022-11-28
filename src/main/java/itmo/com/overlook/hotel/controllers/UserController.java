@@ -11,7 +11,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RestController
@@ -56,6 +58,17 @@ public class UserController {
         User user = this.userService.getDirector();
 
         return new ResponseEntity<UserDTO>(this.userDtoMapper.toDTO(user), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/clients", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Set<UserDTO>> getClients() {
+
+        Set<User> users = this.userService.getClients();
+        Set<UserDTO> userDTOs = new HashSet<UserDTO>();
+        for (User i: users) {
+            userDTOs.add(this.userDtoMapper.toDTO(i));
+        }
+        return new ResponseEntity<Set<UserDTO>>(userDTOs, HttpStatus.OK);
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

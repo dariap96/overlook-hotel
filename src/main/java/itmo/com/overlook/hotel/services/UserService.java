@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -49,10 +50,10 @@ public class UserService {
         return  (User) role.get().getUserSet().toArray()[0];
     }
 
-    public List<User> getAllClients() {
+    public Set<User> getClients() {
         log.info("IN UserService getAllClients");
-        return userRepository.findAll();
-        // здесь нужно будет исправить на ту функцию, которую допишем в UserRepository
+        Optional<Role> role =  roleRepository.getByRole(ERole.USER);
+        return (Set<User>) role.get().getUserSet();
     }
 
     public List<User> getAllAdmins() {
