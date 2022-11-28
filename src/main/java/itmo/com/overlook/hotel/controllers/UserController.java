@@ -71,6 +71,17 @@ public class UserController {
         return new ResponseEntity<Set<UserDTO>>(userDTOs, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/admins", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Set<UserDTO>> getAdmins() {
+
+        Set<User> users = this.userService.getAdmins();
+        Set<UserDTO> userDTOs = new HashSet<UserDTO>();
+        for (User i: users) {
+            userDTOs.add(this.userDtoMapper.toDTO(i));
+        }
+        return new ResponseEntity<Set<UserDTO>>(userDTOs, HttpStatus.OK);
+    }
+
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<User> users = this.userService.getAll();

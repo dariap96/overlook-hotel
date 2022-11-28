@@ -56,9 +56,9 @@ public class UserService {
         return (Set<User>) role.get().getUserSet();
     }
 
-    public List<User> getAllAdmins() {
+    public Set<User> getAdmins() {
         log.info("IN UserService getAllAdmins");
-        return userRepository.findAll();
-        // здесь нужно будет исправить на ту функцию, которую допишем в UserRepository
+        Optional<Role> role =  roleRepository.getByRole(ERole.ADMIN);
+        return (Set<User>) role.get().getUserSet();
     }
 }
