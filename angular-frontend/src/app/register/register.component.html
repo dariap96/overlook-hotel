@@ -19,8 +19,10 @@
                 <i class="fa fa-question fa-stack-1x"></i>
             </span>
   </p>
-  <input type="name" #name class="login-username" autofocus required="true" placeholder="Name" />
-  <input type="email" #email class="login-username" autofocus required="true" placeholder="Username" />
+  <input type="name" #name class="login-username" autofocus required="true" placeholder="Username" />
+  <input #real_name class="login-username" autofocus required="true" placeholder="Name" />
+  <input #surname class="login-username" autofocus required="true" placeholder="Surname" />
+  <input type="email" #email class="login-username" autofocus required="true" placeholder="Email" />
   <input type="password" #password class="login-password" required="true" placeholder="Password" />
   <input type="button" id="login-submit" name="signUp" (click)="onSubmit()" value="Sign Up" class="login-submit" />
 </form>

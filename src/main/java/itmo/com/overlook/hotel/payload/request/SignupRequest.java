@@ -24,5 +24,8 @@ public class SignupRequest {
     @Size(min = 8, max = 20)
     private String password;
 
+    private String name;
+    private String surname;
+
     private Set<String> role;
 }

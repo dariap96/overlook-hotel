@@ -19,6 +19,12 @@ export class RegisterComponent implements OnInit {
   @ViewChild('password')
   password !: ElementRef;
 
+  @ViewChild('real_name')
+  realName !: ElementRef;
+
+  @ViewChild('surname')
+  surname!: ElementRef;
+
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -32,7 +38,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.name.nativeElement.value && this.email.nativeElement.value && this.password.nativeElement.value) {
       this.authService.register(this.name.nativeElement.value, this.email.nativeElement.value,
-        this.password.nativeElement.value).subscribe(
+        this.password.nativeElement.value, this.realName.nativeElement.value, this.surname.nativeElement.value).subscribe(
         data => {
           console.log(data);
           this.isSuccessful = true;
