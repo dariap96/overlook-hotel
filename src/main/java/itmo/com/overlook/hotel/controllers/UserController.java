@@ -47,7 +47,7 @@ public class UserController {
         User user = this.userService.getById(id);
         System.out.println(user);
 
-        return new ResponseEntity<UserDTO>(this.userDtoMapper.toDTO(user), HttpStatus.OK);
+        return new ResponseEntity<>(this.userDtoMapper.toDTO(user), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/director", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

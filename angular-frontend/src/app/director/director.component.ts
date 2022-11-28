@@ -4,6 +4,8 @@ import {DirectorService} from "../services/director.service";
 import {TokenStorageService} from "../services/token-storage.service";
 import {RoomConstructorService} from "../services/room-constructor.service";
 import {Room} from "../models/room";
+import {UserService} from "../services/user.service";
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-director',
@@ -12,17 +14,22 @@ import {Room} from "../models/room";
 })
 export class DirectorComponent implements OnInit {
 
-  public currentUser: any;
+  public currentUser: User;
   public hotel!: Hotel;
   public rooms!: Room[];
   public vipRooms: Room[];
 
   constructor(private directorService: DirectorService,
               private token: TokenStorageService,
-              private roomConstructorService: RoomConstructorService) { }
+              private roomConstructorService: RoomConstructorService,
+              private userService: UserService) { }
 
   ngOnInit(): void {
-    this.currentUser = this.token.getUser();
+    this.userService.getUser(this.token.getUser().id).subscribe(
+      (user) => {
+        this.currentUser = user;
+      }
+    );
     console.log(this.currentUser);
     //переписать на forkjoin
     this.directorService.getHotel().subscribe(
