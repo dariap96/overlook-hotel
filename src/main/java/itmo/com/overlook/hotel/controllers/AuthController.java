@@ -125,4 +125,36 @@ public class AuthController {
 
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
+
+	@PostMapping("/signup/admin")
+	public ResponseEntity<?> registerAdmin(@Valid @RequestBody SignupRequest signUpRequest) {
+		if (userRepository.getUserByLogin(signUpRequest.getUsername()).isPresent()) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Username is already taken!"));
+		}
+
+		if (userRepository.getUserByEmail(signUpRequest.getEmail()).isPresent()) {
+			return ResponseEntity
+					.badRequest()
+					.body(new MessageResponse("Error: Email is already in use!"));
+		}
+
+		User user = new User(signUpRequest.getUsername(),
+				encoder.encode(signUpRequest.getPassword()),
+				signUpRequest.getEmail(),
+				signUpRequest.getName(),
+				signUpRequest.getSurname());
+
+		Set<Role> roles = new HashSet<>();
+		Role userRole = roleRepository.getByRole(ERole.ADMIN)
+				.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+		roles.add(userRole);
+
+
+		user.setRoleSet(roles);
+		userRepository.save(user);
+
+		return ResponseEntity.ok(new MessageResponse("Admin registered successfully!"));
+	}
 }

@@ -13,4 +13,6 @@ public interface NotificationRepository extends JpaRepository<Notification, Inte
 
     @Query("SELECT n FROM Notification n WHERE n.toClientId is null and n.fromClientId is not null")
     List<Notification> findAllAdmin();
+
+    List<Notification> getAllByToClientId(Integer id);
 }

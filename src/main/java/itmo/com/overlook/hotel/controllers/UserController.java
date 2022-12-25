@@ -2,6 +2,7 @@ package itmo.com.overlook.hotel.controllers;
 
 import itmo.com.overlook.hotel.DTOs.UserDTO;
 import itmo.com.overlook.hotel.DTOs.UserDTOMapper;
+import itmo.com.overlook.hotel.entities.Room;
 import itmo.com.overlook.hotel.entities.User;
 import itmo.com.overlook.hotel.services.*;
 import lombok.RequiredArgsConstructor;
@@ -80,6 +81,12 @@ public class UserController {
             userDTOs.add(this.userDtoMapper.toDTO(i));
         }
         return new ResponseEntity<Set<UserDTO>>(userDTOs, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/admins/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Room> deleteAdmin(@PathVariable("id") Integer id) {
+        this.userService.delete(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -8,6 +8,10 @@ import {AdminNotificationsComponent} from "./admin-notifications/admin-notificat
 import {UserComponent} from "./user/user.component";
 import {BookingComponent} from "./booking/booking.component";
 import {AdminComponent} from "./admin/admin.component";
+import {AdminListComponent} from "./admin-list/admin-list.component";
+import {CreateAdminComponent} from "./create-admin/create-admin.component";
+import {ClientNotificationsComponent} from "./client-notifications/client-notifications.component";
+import {NicePageComponent} from "./nice-page/nice-page.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,7 +22,11 @@ const routes: Routes = [
   { path: 'admin-notifications', component: AdminNotificationsComponent},
   { path: 'user', component: UserComponent},
   { path: 'booking', component: BookingComponent},
-  { path: 'admin', component: AdminComponent }
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin-list', component: AdminListComponent },
+  { path: 'create-admin', component: CreateAdminComponent },
+  { path: 'notifications', component: ClientNotificationsComponent },
+  { path: 'nice', component: NicePageComponent }
 ];
 
 @NgModule({

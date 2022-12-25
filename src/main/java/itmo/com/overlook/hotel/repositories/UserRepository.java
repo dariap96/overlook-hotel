@@ -13,6 +13,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> getUserByEmail(String email);
 
+
     /*@Query("SELECT user FROM users user LEFT JOIN users_roles user_role ON user.id=user_role.user_id LEFT JOIN roles role on user_role.role_id=role.id WHERE roles.role = ")
     List<User> getAllClients();
 

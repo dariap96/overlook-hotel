@@ -18,6 +18,9 @@ import {FormsModule} from "@angular/forms";
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { ClientNotificationsComponent } from './client-notifications/client-notifications.component';
+import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { NicePageComponent } from './nice-page/nice-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     AdminListComponent,
     AdminNotificationsComponent,
     UserComponent,
-    BookingComponent
+    BookingComponent,
+    ClientNotificationsComponent,
+    CreateAdminComponent,
+    NicePageComponent
   ],
   imports: [
     BrowserModule,

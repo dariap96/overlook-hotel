@@ -21,6 +21,15 @@ public class NotificationDTOMapper {
         return new NotificationAdminDTO(info, fromClientId, room, client_name, room_number);
     }
 
+    public NotificationClientDTO toClientDTO (Notification notification) {
+        String info = notification.getInfo();
+        Integer toClientId = notification.getToClientId().getId();
+        Integer room = notification.getToClientId().getRoom().getId();
+        String client_name = notification.getToClientId().getName()+" "+notification.getFromClientId().getSurname();
+        Integer room_number = notification.getToClientId().getRoom().getNumber();
+        return new NotificationClientDTO(info, toClientId, room, client_name, room_number);
+    }
+
     public Notification toEntity(NotificationDTO notificationDTO){
         String info = notificationDTO.info;
         User fromClientId = userService.getById(notificationDTO.fromClientId);

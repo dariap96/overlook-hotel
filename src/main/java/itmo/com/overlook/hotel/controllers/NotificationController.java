@@ -1,6 +1,7 @@
 package itmo.com.overlook.hotel.controllers;
 
 import itmo.com.overlook.hotel.DTOs.NotificationAdminDTO;
+import itmo.com.overlook.hotel.DTOs.NotificationClientDTO;
 import itmo.com.overlook.hotel.DTOs.NotificationDTO;
 import itmo.com.overlook.hotel.DTOs.NotificationDTOMapper;
 import itmo.com.overlook.hotel.entities.Notification;
@@ -60,6 +61,17 @@ public class NotificationController {
             notificationAdminDTOS.add(this.notificationDTOMapper.toDTO(i));
         }
         return new ResponseEntity<>(notificationAdminDTOS, headers, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/client/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<List<NotificationClientDTO>> getAllClientNotifications(@PathVariable("id") Integer id) {
+        HttpHeaders headers = new HttpHeaders();
+        List<Notification> notifications = this.notificationService.getAllClient(id);
+        List<NotificationClientDTO> notificationClientDTOS = new ArrayList<NotificationClientDTO>();
+        for (Notification i: notifications) {
+            notificationClientDTOS.add(this.notificationDTOMapper.toClientDTO(i));
+        }
+        return new ResponseEntity<>(notificationClientDTOS, headers, HttpStatus.OK);
     }
 
 

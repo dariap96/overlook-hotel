@@ -1,1 +1,52 @@
-<p>admin-list works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel editing</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script src="hotelEditing.js"></script>
+  <script src="hystmodal.js"></script>
+  <script src="https://raw.githubusercontent.com/AddMoreScripts/hystModal/master/dist/hystmodal.min.js"></script>
+</head>
+
+<body>
+<main>
+  <div class="outer">
+    <div class="inner">
+      <div id="rooms-sections">
+        <div *ngFor="let admin of admins">
+          <div class="section">
+            <div class="inner-section">
+              Имя: <input #name type="text" class="input" required="false"
+                            placeholder="0" value="{{admin.name}}" style="margin: 0 5px ;" />
+            </div>
+            <div class="inner-section">
+              Фамилия: <input #surname type="text" class="input" required="false" placeholder="0"
+                           style="margin: 0 5px ;" value="{{admin.surname}}" />
+            </div>
+            <div class="inner-section">
+              Login: <input #login type="text" class="input" required="false" placeholder="0"
+                                         style="margin: 0 5px ;" value="{{admin.login}}" />
+            </div>
+            <div class="inner-section" (click)="removeAdmin(admin)" >
+              Удалить
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="inner">
+      <a href="/create-admin">Добавить администратора</a>
+    </div>
+  </div>
+</main>
+
+</body>
+
+<script>
+</script>
+
+</html>

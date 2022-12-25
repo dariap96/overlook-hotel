@@ -31,5 +31,14 @@ export class AuthService {
       surname
     }, httpOptions);
   }
+  registerAdmin(username: string, email: string, password: string, name: string, surname: string): Observable<any> {
+    return this.http.post(AUTH_API + 'signup/admin', {
+      username,
+      email,
+      password,
+      name,
+      surname
+    }, httpOptions);
+  }
 
 }

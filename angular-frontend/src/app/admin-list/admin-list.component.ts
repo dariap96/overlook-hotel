@@ -20,4 +20,16 @@ export class AdminListComponent implements OnInit {
       this.admins = data;
     });
   }
+
+  removeAdmin(admin: User) {
+    this.adminListService.deleteAdmin(admin).subscribe(
+      () => console.log('Deleting correctly'),
+      error => console.warn(error)
+    )
+    this.reloadPage();
+  }
+
+  reloadPage() {
+    window.location.reload()
+  }
 }
