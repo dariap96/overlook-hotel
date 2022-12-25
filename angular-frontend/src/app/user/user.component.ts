@@ -13,7 +13,8 @@ import {Notification} from "../models/notification";
 export class UserComponent implements OnInit {
 
   public currentUser: User;
-  public show = false;
+  public showNotification = false;
+  public showRate = false;
 
   @ViewChild("notificationText")
   notificationText: ElementRef
@@ -44,19 +45,31 @@ export class UserComponent implements OnInit {
     window.location.reload();
   }
 
-
-  showPopUp() {
-    this.show = true;
-    console.log(this.show)
+  showNotificationPopUp() {
+    this.showNotification = true;
   }
 
-  closePopUp() {
-    this.show = false
+  closeNotificationPopUp() {
+    this.showNotification = false
   }
 
-  closePopUpOverlay(e: any) {
+  closeNotificationPopUpOverlay(e: any) {
     if (e.target.classList.contains('overlay')) {
-      this.show = false;
+      this.showNotification = false;
+    }
+  }
+
+  showRatePopUp() {
+    this.showRate = true;
+  }
+
+  closeRatePopUp() {
+    this.showRate = false
+  }
+
+  closeRatePopUpOverlay(e: any) {
+    if (e.target.classList.contains('overlay')) {
+      this.showRate = false;
     }
   }
 
