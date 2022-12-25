@@ -64,6 +64,7 @@
     </div>
   </div>
 </main>
+
 <div class="overlay" *ngIf="show" (click)="closePopUpOverlay($event)">
   <div class="content">
     <div class="section">
@@ -74,5 +75,23 @@
     </div>
   </div>
 </div>
+
+<!-- TODO: Добавить отправку и получение значение из select -->
+<div class="overlay" *ngIf="show" (click)="closePopUpOverlay($event)">
+  <div class="content">
+    <div class="section">
+      Оцените нас!
+      <select name="rate" id="rate-select">
+        <option value="">Ваша оценка</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
