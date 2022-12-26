@@ -72,13 +72,13 @@ public class RoomController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         this.roomService.save(room);
-        return new ResponseEntity<>(room, headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(room, headers, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Room> deleteRoom(@PathVariable("id") Integer id) {
         this.roomService.delete(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
    @RequestMapping(value = "/vip", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

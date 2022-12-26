@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,5 +25,8 @@ public class RoomDateService {
         return roomDateRepository.getAllByRoomId(id);
     }
 
-
+    public void save(Integer roomId, Date arrivalDate) {
+        log.info("IN RoomService save {}", roomId, arrivalDate);
+        roomDateRepository.saveRoomDate(roomId, arrivalDate);
+    }
 }

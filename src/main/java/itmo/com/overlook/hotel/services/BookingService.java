@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -28,6 +29,11 @@ public class BookingService {
     public List<Booking> getAll() {
         log.info("IN Booking Service getAll");
         return bookingRepository.findAll();
+    }
+
+    public void save(Booking booking) {
+        log.info("IN RoomService save {}", booking.getId());
+        bookingRepository.save(booking);
     }
 
     public List<Booking> getBookingsByClientId(Integer id) {

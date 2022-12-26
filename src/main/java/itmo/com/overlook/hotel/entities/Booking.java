@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Table(name = "bookings")
 @Entity
@@ -19,10 +20,10 @@ public class Booking {
     private Integer id;
 
     @Column(name = "arrival_date")
-    private LocalDate arrivalDate;
+    private Date arrivalDate;
 
     @Column(name = "departure_date")
-    private LocalDate departureDate;
+    private Date departureDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -32,8 +33,15 @@ public class Booking {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    public Booking(Integer id, LocalDate arrivalDate, LocalDate departureDate, User user, Room room) {
+    public Booking(Integer id, Date arrivalDate, Date departureDate, User user, Room room) {
         this.id = id;
+        this.arrivalDate = arrivalDate;
+        this.departureDate = departureDate;
+        this.user = user;
+        this.room = room;
+    }
+
+    public Booking(Date arrivalDate, Date departureDate, User user, Room room) {
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
         this.user = user;
