@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your page</title>
 </head>
-<body>
+<body style="margin: 0px;">
 <main>
   <div class="outer">
     <div class="inner">
@@ -79,9 +79,12 @@
 <!-- TODO: Добавить отправку и получение значение из select -->
 <div class="overlay" *ngIf="showRate" (click)="closeRatePopUpOverlay($event)">
   <div class="content">
-    <div class="section">
+    <div class="section" style="color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;">
       Оцените нас!
-      <select name="rate" id="rate-select">
+      <select name="rate" id="rate-select" style="margin: 16px;">
         <option value="">Ваша оценка</option>
         <option value="1">1</option>
         <option value="2">2</option>
