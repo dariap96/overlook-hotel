@@ -22,6 +22,7 @@ import { ClientNotificationsComponent } from './client-notifications/client-noti
 import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { NicePageComponent } from './nice-page/nice-page.component';
 import { UserBookingComponent } from './user-booking/user-booking.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserBookingComponent } from './user-booking/user-booking.component';
     ClientNotificationsComponent,
     CreateAdminComponent,
     NicePageComponent,
-    UserBookingComponent
+    UserBookingComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

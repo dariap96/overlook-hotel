@@ -13,6 +13,7 @@ import {CreateAdminComponent} from "./create-admin/create-admin.component";
 import {ClientNotificationsComponent} from "./client-notifications/client-notifications.component";
 import {NicePageComponent} from "./nice-page/nice-page.component";
 import {UserBookingComponent} from "./user-booking/user-booking.component";
+import {TableComponent} from "./table/table.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'create-admin', component: CreateAdminComponent },
   { path: 'notifications', component: ClientNotificationsComponent },
   { path: 'nice', component: NicePageComponent },
-  { path: 'user-booking', component: UserBookingComponent}
+  { path: 'user-booking', component: UserBookingComponent},
+  { path: 'table', component: TableComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,8 @@
 package itmo.com.overlook.hotel.services;
 
+import itmo.com.overlook.hotel.entities.Booking;
 import itmo.com.overlook.hotel.entities.Notification;
+import itmo.com.overlook.hotel.repositories.BookingRepository;
 import itmo.com.overlook.hotel.repositories.NotificationRepository;
 import itmo.com.overlook.hotel.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,8 @@ public class NotificationService {
     private final NotificationRepository notificationRepository;
 
     private final UserRepository userRepository;
+
+    private final BookingRepository bookingRepository;
 
     public Notification getById(Integer id) {
         log.info("IN Notification Service getById {}", id);
@@ -59,12 +63,13 @@ public class NotificationService {
     }
 
     public void createClientNotification(Integer id){
-        Date arriveTime = new Date();
+        List<Booking> bookings = bookingRepository.getBookingsByUser(userRepository.findById(id).get());
+        Date departureDate = bookings.get(bookings.size()-1).getDepartureDate();
         Date now = new Date();
         Date value = new Date(0, 0, 3);
-        if (arriveTime.getTime() - now.getTime() < value.getTime()) {
-            Timestamp numDays = new Timestamp(arriveTime.getTime() - now.getTime());
-            String text = "Your booking closed in " + numDays + ". It will be " + arriveTime.toString();
+        if (departureDate.getTime() - now.getTime() < value.getTime()) {
+            Timestamp numDays = new Timestamp(departureDate.getTime() - now.getTime());
+            String text = "Your booking closed in " + numDays + ". It will be " + departureDate.toString();
             Notification notification = new Notification(null, userRepository.findById(id).get(), text);
             notificationRepository.save(notification);
         }

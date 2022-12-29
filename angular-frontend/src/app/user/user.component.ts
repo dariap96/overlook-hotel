@@ -4,6 +4,7 @@ import {UserService} from "../services/user.service";
 import {User} from "../models/user";
 import {NotificationService} from "../services/notification.service";
 import {Notification} from "../models/notification";
+import {SettingsService} from "../services/settings.service";
 
 @Component({
   selector: 'app-user',
@@ -19,9 +20,13 @@ export class UserComponent implements OnInit {
   @ViewChild("notificationText")
   notificationText: ElementRef
 
+  @ViewChild("rate")
+  rate: ElementRef
+
   constructor(private userService: UserService,
               private token: TokenStorageService,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private settingsService: SettingsService) { }
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
@@ -43,6 +48,14 @@ export class UserComponent implements OnInit {
       error => console.warn(error)
     )
     window.location.reload();
+  }
+
+  updateRate(){
+    let rate = this.rate.nativeElement.value
+    this.settingsService.updateRate(rate).subscribe(
+      () => console.log('Updating correctly'),
+      error => console.warn(error)
+    )
   }
 
   showNotificationPopUp() {
