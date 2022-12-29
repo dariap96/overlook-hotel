@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaning</title>
+    <style>
+        .container {
+            width: 14vw;
+        }
+
+        textarea {
+            width: 14vw;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="background-color: black; color: white; text-align: center;">
+        График уборки
+    </h2>
+    <!-- Тупо создай в ts эти функции
+    и бери значение из event.target.value -->
+    <div class="outer" style="display: flex;">
+        <div class="container">
+            Понедельник
+            <textarea (focusout)="changeMondey($event)"></textarea>
+        </div>
+        <div class="container">
+            Вторник
+            <textarea (focusout)="changeTuesday($event)"></textarea>
+        </div>
+        <div class="container">
+            <textarea (focusout)="changeWednesday($event)"></textarea>
+        </div>
+        <div class="container">
+            Четверг
+            <textarea (focusout)="changeThursday($event)"></textarea>
+        </div>
+        <div class="container">
+            Пятница
+            <textarea (focusout)="changeFriday($event)"></textarea>
+        </div>
+        <div class="container">
+            Суббота
+            <textarea (focusout)="changeSaturday($event)"></textarea>
+        </div>
+        <div class="container">
+            Воскресенье
+            <textarea (focusout)="changeSunday($event)"></textarea>
+        </div>
+    </div>
+</body>
+</html>
