@@ -11,12 +11,16 @@
   border-radius: 16px;
 }
 
-body {
+html {
   font-family: 'Open Sans';
   font-weight: 100;
-  margin: 0;
-  background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1614427835_57-p-temnii-fon-dlya-android-61.jpg');
+  margin: 0 !important;
+  background-image: url('../../assets/images/profile-backbground.jpeg');
   background-repeat: no-repeat;
+  width: calc(100vw - 16px);
+  height: calc(100vh - 16px);
+  background-color: black;
+  position: absolute;
 }
 
 .main-inner {
