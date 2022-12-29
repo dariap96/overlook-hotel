@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Document</title>
+</head>
+
+<body>
+<header>
+  <h1>
+    Мои брони
+  </h1>
+</header>
+<main id="main">
+  <div *ngFor="let booking of bookings">
+    <section>
+      <p class="post_info">
+        <span class="label_post">
+            Дата прибытия:
+            <span class="post_id">{{booking.arrivalDate}}</span>
+        </span>
+        <span class="label_user_id">
+            Дата выезда:
+            <span class="user_id">{{booking.departureDate}}</span>
+        </span>
+      </p>
+      <p class="text_post">
+        {{booking.userId}}
+      </p>
+    </section>
+  </div>
+</main>
+
+</body>
+
+</html>
