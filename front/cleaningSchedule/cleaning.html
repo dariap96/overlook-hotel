@@ -22,44 +22,35 @@
     </h2>
     <!-- Тупо создай в ts эти функции
     и бери значение из event.target.value -->
-
-    <!-- Чтобы записать значение в .ts будет:
-        @ViewChildren('text')
-        texts: QueryList<ElementRef>;
-
-        ...
-
-        let text = texts.get(от 0 до 6 (по дням недели))
-        text.nativeElement.value = newText Надеюсь))) 
-    -->
     <div class="outer" style="display: flex;">
         <div class="container">
             Понедельник
-            <textarea #text (focusout)="changeMondey($event)"></textarea>
+            <textarea (focusout)="changeMondey($event)">{{table.monday}}</textarea>
             <!-- changeMondey - если текст изменился и тд -->
         </div>
         <div class="container">
             Вторник
-            <textarea #text (focusout)="changeTuesday($event)"></textarea>
+            <textarea (focusout)="changeTuesday($event)">{{table.tuesday}}</textarea>
         </div>
         <div class="container">
-            <textarea #text (focusout)="changeWednesday($event)"></textarea>
+            Среда
+            <textarea (focusout)="changeWednesday($event)">{{table.wednesday}}</textarea>
         </div>
         <div class="container">
             Четверг
-            <textarea #text (focusout)="changeThursday($event)"></textarea>
+            <textarea (focusout)="changeThursday($event)">{{table.thursday}}</textarea>
         </div>
         <div class="container">
             Пятница
-            <textarea #text (focusout)="changeFriday($event)"></textarea>
+            <textarea (focusout)="changeFriday($event)">{{table.friday}}</textarea>
         </div>
         <div class="container">
             Суббота
-            <textarea #text (focusout)="changeSaturday($event)"></textarea>
+            <textarea (focusout)="changeSaturday($event)">{{table.saturday}}</textarea>
         </div>
         <div class="container">
             Воскресенье
-            <textarea #text (focusout)="changeSunday($event)"></textarea>
+            <textarea (focusout)="changeSunday($event)">{{table.sunday}}</textarea>
         </div>
     </div>
 </body>
