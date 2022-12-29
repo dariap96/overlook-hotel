@@ -12,6 +12,7 @@ import {AdminListComponent} from "./admin-list/admin-list.component";
 import {CreateAdminComponent} from "./create-admin/create-admin.component";
 import {ClientNotificationsComponent} from "./client-notifications/client-notifications.component";
 import {NicePageComponent} from "./nice-page/nice-page.component";
+import {UserBookingComponent} from "./user-booking/user-booking.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'admin-list', component: AdminListComponent },
   { path: 'create-admin', component: CreateAdminComponent },
   { path: 'notifications', component: ClientNotificationsComponent },
-  { path: 'nice', component: NicePageComponent }
+  { path: 'nice', component: NicePageComponent },
+  { path: 'user-booking', component: UserBookingComponent}
 ];
 
 @NgModule({

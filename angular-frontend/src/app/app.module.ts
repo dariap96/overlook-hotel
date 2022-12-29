@@ -21,6 +21,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import { ClientNotificationsComponent } from './client-notifications/client-notifications.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { NicePageComponent } from './nice-page/nice-page.component';
+import { UserBookingComponent } from './user-booking/user-booking.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NicePageComponent } from './nice-page/nice-page.component';
     BookingComponent,
     ClientNotificationsComponent,
     CreateAdminComponent,
-    NicePageComponent
+    NicePageComponent,
+    UserBookingComponent
   ],
   imports: [
     BrowserModule,
