@@ -22,33 +22,44 @@
     </h2>
     <!-- Тупо создай в ts эти функции
     и бери значение из event.target.value -->
+
+    <!-- Чтобы записать значение в .ts будет:
+        @ViewChildren('text')
+        texts: QueryList<ElementRef>;
+
+        ...
+
+        let text = texts.get(от 0 до 6 (по дням недели))
+        text.nativeElement.value = newText Надеюсь))) 
+    -->
     <div class="outer" style="display: flex;">
         <div class="container">
             Понедельник
-            <textarea (focusout)="changeMondey($event)"></textarea>
+            <textarea #text (focusout)="changeMondey($event)"></textarea>
+            <!-- changeMondey - если текст изменился и тд -->
         </div>
         <div class="container">
             Вторник
-            <textarea (focusout)="changeTuesday($event)"></textarea>
+            <textarea #text (focusout)="changeTuesday($event)"></textarea>
         </div>
         <div class="container">
-            <textarea (focusout)="changeWednesday($event)"></textarea>
+            <textarea #text (focusout)="changeWednesday($event)"></textarea>
         </div>
         <div class="container">
             Четверг
-            <textarea (focusout)="changeThursday($event)"></textarea>
+            <textarea #text (focusout)="changeThursday($event)"></textarea>
         </div>
         <div class="container">
             Пятница
-            <textarea (focusout)="changeFriday($event)"></textarea>
+            <textarea #text (focusout)="changeFriday($event)"></textarea>
         </div>
         <div class="container">
             Суббота
-            <textarea (focusout)="changeSaturday($event)"></textarea>
+            <textarea #text (focusout)="changeSaturday($event)"></textarea>
         </div>
         <div class="container">
             Воскресенье
-            <textarea (focusout)="changeSunday($event)"></textarea>
+            <textarea #text (focusout)="changeSunday($event)"></textarea>
         </div>
     </div>
 </body>
