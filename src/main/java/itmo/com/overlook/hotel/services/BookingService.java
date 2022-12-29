@@ -26,6 +26,11 @@ public class BookingService {
         return bookingRepository.findById(id).get();
     }
 
+    public List<Booking> getByUserId(Integer id) {
+        log.info("IN Booking Service getById {}", id);
+        return bookingRepository.getBookingsByUser(userRepository.findById(id).get());
+    }
+
     public List<Booking> getAll() {
         log.info("IN Booking Service getAll");
         return bookingRepository.findAll();

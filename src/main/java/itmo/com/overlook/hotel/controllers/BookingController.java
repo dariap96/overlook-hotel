@@ -20,12 +20,12 @@ public class BookingController {
     private final BookingService bookingService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Booking> getBookingById(@PathVariable("id") Integer id) {
+    public ResponseEntity<List<Booking>> getBookingById(@PathVariable("id") Integer id) {
 
         if (id == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        Booking booking = this.bookingService.getById(id);
+        List<Booking> booking = this.bookingService.getByUserId(id);
 
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
