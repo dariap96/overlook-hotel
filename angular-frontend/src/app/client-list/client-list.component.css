@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.inner {
+  width: 98vw;
+  background-color: rgba(0, 33, 55, 0.7);
+  position: absolute;
+  border-radius: 16px;
+  margin: 1vh 1vw;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  margin: 0;
+  background-image: url('https://catherineasquithgallery.com/uploads/posts/2021-02/1614427835_57-p-temnii-fon-dlya-android-61.jpg');
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.section {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.hotel-settings {
+  margin: 20px;
+}
+
+.inner-section {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.input {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+}
+
+.input:focus {
+  background: white;
+  color: black;
+  transition: 250ms background ease-in;
+}
+
+input:focus {
+  outline: 0 transparent solid;
+}
+
+.add-new-button {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: #4b4b4b;
+  margin: 20px;
+  font-size: 100px;
+  line-height: 70px;
+  user-select: none;
+  background-color: rgba(112, 199, 112, 0.66);
+  display: block;
+  width: 70px;
+  text-align: center;
+  border-radius: 16px;
+}

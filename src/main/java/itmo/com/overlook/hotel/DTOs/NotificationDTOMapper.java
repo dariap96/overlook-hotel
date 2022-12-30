@@ -25,7 +25,7 @@ public class NotificationDTOMapper {
         String info = notification.getInfo();
         Integer toClientId = notification.getToClientId().getId();
         Integer room = notification.getToClientId().getRoom().getId();
-        String client_name = notification.getToClientId().getName()+" "+notification.getFromClientId().getSurname();
+        String client_name = notification.getToClientId().getName()+" "+notification.getToClientId().getSurname();
         Integer room_number = notification.getToClientId().getRoom().getNumber();
         return new NotificationClientDTO(info, toClientId, room, client_name, room_number);
     }

@@ -55,9 +55,6 @@
               <a href="/notifications">Последние оповещения</a>
             </div>
 
-            <div class="section-content">
-              <a href="/nice">Промо</a>
-            </div>
           </div>
         </div>
       </div>
@@ -84,7 +81,7 @@
     flex-direction: column;
     align-items: center;">
       Оцените нас!
-      <select name="rate" id="rate-select" style="margin: 16px;">
+      <select #rate name="rate" id="rate-select" style="margin: 16px;">
         <option value="">Ваша оценка</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -92,7 +89,7 @@
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
-      <div class="new-modal-button" (click)="closeRatePopUp()">
+      <div class="new-modal-button" (click)="updateRate(); closeRatePopUp()">
         Отправить
       </div>
     </div>

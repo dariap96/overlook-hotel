@@ -28,6 +28,9 @@ import {MatCardFooter, MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 //import {MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { TableComponent } from './table/table.component';
+import { ClientListComponent } from './client-list/client-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ClientNotificationsComponent,
     CreateAdminComponent,
     NicePageComponent,
-    UserBookingComponent
+    UserBookingComponent,
+    TableComponent,
+    ClientListComponent
   ],
   imports: [
     BrowserModule,
@@ -61,8 +66,6 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatCardModule,
     MatButtonModule,
     MatProgressBarModule
-    //MatTableModule, MatPaginatorModule, MatSortModule
-    //MatMomentDateModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
