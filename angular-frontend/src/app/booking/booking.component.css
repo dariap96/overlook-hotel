@@ -1,8 +1,10 @@
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
   font-size: 18px;
   line-height: normal;
   color: black;
-  font-family: 'Times New Roman', Georgia, Times, sans-serif;
+  font-family: 'Roboto Light', sans-serif;
   font-weight: normal;
 }
 
@@ -11,7 +13,9 @@ header h1 {
   text-transform: uppercase;
   text-align: center;
   background-color: black;
-  color: white;
+  font-family: 'Roboto Light', sans-serif;
+  color: whitesmoke;
+  font-weight: 500;
   padding: 10px;
   border-radius: 16px;
 }
@@ -19,15 +23,17 @@ header h1 {
 main section {
   margin: 10px;
   padding: 10px;
-  -webkit-box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);
-  -moz-box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);
-  box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);
+  font-family: 'Roboto Light', sans-serif;
+  /*-webkit-box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);*/
+  /*-moz-box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);*/
+  /*box-shadow: 0px 0px 10px 12px rgba(34, 60, 80, 0.15);*/
   border-radius: 16px;
   display: flex;
 }
 
 .post_info {
   display: flex;
+  font-family: 'Roboto Light', sans-serif;
   justify-content: space-between;
 }
 
@@ -36,16 +42,19 @@ main section {
 .label_user_id,
 .user_id {
   font-size: 0.9em;
+  font-family: 'Roboto Light', sans-serif;
 }
 
 .title {
   text-align: center;
   font-size: 1.4em;
   font-weight: 600;
+  font-family: 'Roboto Light', sans-serif;
 }
 
 .text_post {
   text-align: center;
+  font-family: 'Roboto Light', sans-serif;
 }
 
 .visible {
@@ -63,12 +72,14 @@ main section {
 main {
   position: relative;
   min-height: calc(100vh - 47px);
+  font-family: 'Roboto Light', sans-serif;
 }
 
 .inner {
   border: 1px black solid;
   border-radius: 20px;
   padding: 10px;
+  font-family: 'Roboto Light', sans-serif;
 }
 
 .outer {
@@ -80,6 +91,7 @@ main {
 img {
   width: 250px;
   height: 250px;
+  border-radius: 8px !important;
 }
 
 @media only screen
@@ -87,11 +99,13 @@ and (max-width: 600px) {
   img {
     width: 100px;
     height: 100px;
+    border-radius: 8px !important;
   }
 }
 
 .prices-and-all {
   display: flex;
+  font-family: 'Roboto Light', sans-serif;
   flex-direction: column;
   justify-content: flex-end;
   padding-bottom: 10px;
@@ -100,17 +114,20 @@ and (max-width: 600px) {
 
 .prices-and-all-inner {
   border: 2px solid gray;
+  font-family: 'Roboto Light', sans-serif;
   padding: 10px;
   border-radius: 16px;
 }
 
 .price {
   padding-bottom: 5px;
+  font-family: 'Roboto Light', sans-serif;
   display: block;
 }
 
 .main-text {
   padding: 10px;
+  font-family: 'Roboto Light', sans-serif;
 }
 
 

@@ -16,7 +16,7 @@ import {UserBookingComponent} from "./user-booking/user-booking.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  /*{ path: '', redirectTo: 'login', pathMatch: 'full' },*/
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'director', component: DirectorComponent},
   { path: 'room-edit', component: RoomConstructorComponent},

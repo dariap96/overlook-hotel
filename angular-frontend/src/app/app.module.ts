@@ -14,15 +14,20 @@ import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminNotificationsComponent } from './admin-notifications/admin-notifications.component';
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
-import {FormsModule} from "@angular/forms";
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatFormFieldModule} from "@angular/material/form-field";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClientNotificationsComponent } from './client-notifications/client-notifications.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { NicePageComponent } from './nice-page/nice-page.component';
 import { UserBookingComponent } from './user-booking/user-booking.component';
-
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatFormFieldControl, MatFormFieldModule} from "@angular/material/form-field";
+import {MatNativeDateModule} from "@angular/material/core";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardFooter, MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+//import {MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,11 +51,18 @@ import { UserBookingComponent } from './user-booking/user-booking.component';
     HttpClientModule,
     FormsModule,
     BrowserModule,
-    NgxMatTimepickerModule,
     FormsModule,
-    NgxMatDatetimePickerModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatNativeDateModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatProgressBarModule
+    //MatTableModule, MatPaginatorModule, MatSortModule
+    //MatMomentDateModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

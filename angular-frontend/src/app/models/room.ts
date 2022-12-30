@@ -7,4 +7,6 @@ export class Room {
   clientid: number;
   price: number;
   client: number;
+  img: string;
+  readyToBeBooked: boolean;
 }
