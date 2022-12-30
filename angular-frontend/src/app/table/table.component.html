@@ -25,30 +25,32 @@
 <div class="outer" style="display: flex;">
   <div class="container">
     Понедельник
-    <textarea (focusout)="changeMonday($event)"></textarea>
+    <textarea (focusout)="changeMonday($event)">{{table.monday}}</textarea>
+    <!-- changeMondey - если текст изменился и тд -->
   </div>
   <div class="container">
     Вторник
-    <textarea (focusout)="changeTuesday($event)"></textarea>
+    <textarea (focusout)="changeTuesday($event)">{{table.tuesday}}</textarea>
   </div>
   <div class="container">
-    <textarea (focusout)="changeWednesday($event)"></textarea>
+    Среда
+    <textarea (focusout)="changeWednesday($event)">{{table.wednesday}}</textarea>
   </div>
   <div class="container">
     Четверг
-    <textarea (focusout)="changeThursday($event)"></textarea>
+    <textarea (focusout)="changeThursday($event)">{{table.thursday}}</textarea>
   </div>
   <div class="container">
     Пятница
-    <textarea (focusout)="changeFriday($event)"></textarea>
+    <textarea (focusout)="changeFriday($event)">{{table.friday}}</textarea>
   </div>
   <div class="container">
     Суббота
-    <textarea (focusout)="changeSaturday($event)"></textarea>
+    <textarea (focusout)="changeSaturday($event)">{{table.saturday}}</textarea>
   </div>
   <div class="container">
     Воскресенье
-    <textarea (focusout)="changeSunday($event)"></textarea>
+    <textarea (focusout)="changeSunday($event)">{{table.sunday}}</textarea>
   </div>
 </div>
 </body>

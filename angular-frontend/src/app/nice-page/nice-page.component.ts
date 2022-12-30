@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SettingsService} from "../services/settings.service";
 
 @Component({
   selector: 'app-nice-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NicePageComponent implements OnInit {
 
-  constructor() { }
+  public rate: number;
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit(): void {
+    this.settingsService.getRate().subscribe(data => {
+      this.rate = data;
+    });
   }
 
 }

@@ -18,6 +18,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> getUserByEmail(String email);
 
+    Optional<User> getUserById(Integer id);
+
 
     @Query( "select u from User u  where u.roleSet in :roles" )
     public List<User> findByRoles(@Param("roles") Set<Role> roles);

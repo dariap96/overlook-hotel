@@ -23,6 +23,7 @@ import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { NicePageComponent } from './nice-page/nice-page.component';
 import { UserBookingComponent } from './user-booking/user-booking.component';
 import { TableComponent } from './table/table.component';
+import { ClientListComponent } from './client-list/client-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { TableComponent } from './table/table.component';
     CreateAdminComponent,
     NicePageComponent,
     UserBookingComponent,
-    TableComponent
+    TableComponent,
+    ClientListComponent
   ],
   imports: [
     BrowserModule,

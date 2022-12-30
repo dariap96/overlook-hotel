@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -56,6 +57,7 @@ public class NotificationController {
     public ResponseEntity<List<NotificationAdminDTO>> getAllAdminNotifications() {
         HttpHeaders headers = new HttpHeaders();
         List<Notification> notifications = this.notificationService.getAllAdmin();
+        Collections.reverse(notifications);
         List<NotificationAdminDTO> notificationAdminDTOS = new ArrayList<NotificationAdminDTO>();
         for (Notification i: notifications) {
             notificationAdminDTOS.add(this.notificationDTOMapper.toDTO(i));
@@ -67,6 +69,7 @@ public class NotificationController {
     public ResponseEntity<List<NotificationClientDTO>> getAllClientNotifications(@PathVariable("id") Integer id) {
         HttpHeaders headers = new HttpHeaders();
         List<Notification> notifications = this.notificationService.getAllClient(id);
+        Collections.reverse(notifications);
         List<NotificationClientDTO> notificationClientDTOS = new ArrayList<NotificationClientDTO>();
         for (Notification i: notifications) {
             notificationClientDTOS.add(this.notificationDTOMapper.toClientDTO(i));
