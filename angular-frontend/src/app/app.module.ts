@@ -30,6 +30,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 //import {MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { TableComponent } from './table/table.component';
 import { ClientListComponent } from './client-list/client-list.component';
+import {AngularYandexMapsModule, IConfig} from "angular8-yandex-maps";
+
+const mapConfig: IConfig ={
+  apikey: "32c86121-c430-4b64-aa6a-5263f4608441",
+  lang: "en_US"
+}
 
 @NgModule({
   declarations: [
@@ -65,7 +71,8 @@ import { ClientListComponent } from './client-list/client-list.component';
     ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    AngularYandexMapsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

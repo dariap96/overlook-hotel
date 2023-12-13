@@ -16,6 +16,7 @@ export class AdminListService {
   }
 
   public deleteAdmin(admin: User) {
+    console.log("hiii");
     return this.http.delete("http://localhost:8080/api/users/admins/"+admin.id);
   }
 }

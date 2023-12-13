@@ -23,48 +23,51 @@
     </div>
   </div>
 </div>
-
+<div class="map-container">
+  <ya-map [center]='[55.751952, 37.600739]' [zoom]="12">
+    <ya-placemark *ngFor="let item of points" [geometry]="item"
+                  [properties]="placemarkProperties"
+                  [options]="placemarkOptions"></ya-placemark>
+  </ya-map>
+</div>
 <div class="sections" style="display: flex; flex-direction: column;">
-    <div class="section">
+    <div class="section" style="display: flex; align-self: center">
         <span>Регистрируйтесь</span>
         <div class="container">
-          <img src="../../assets/images/nicePage/реги.png" width="250px" height="250px" class="item">
+<!--          <img src="../../assets/images/nicePage/реги.png" width="250px" height="250px" class="item">-->
         </div>
     </div>
     <div class="section reversed" style="display: flex;">
         <span>Авторизируйтесь</span>
-        <img src="../../assets/images/nicePage/вход.png" width="250px" height="250px" class="item">
+<!--        <img src="../../assets/images/nicePage/вход.png" width="250px" height="250px" class="item">-->
     </div>
     <div class="section" style="display: flex;">
         <span>Оставляйте отзыв</span>
-        <img src="../../assets/images/nicePage/оценка.png" width="250px" height="250px" class="item">
+<!--        <img src="../../assets/images/nicePage/оценка.png" width="250px" height="250px" class="item">-->
     </div>
     <div class="section reversed" style="display: flex;">
         <span>Закажите услугу</span>
-        <img src="../../assets/images/nicePage/заявка.png" width="250px" height="250px" class="item">
+<!--        <img src="../../assets/images/nicePage/заявка.png" width="250px" height="250px" class="item">-->
     </div>
     <div class="section" style="display: flex;">
         <span>Просматривайте свой профиль</span>
-        <img src="../../assets/images/nicePage/профиль.png" width="250px" height="250px" class="item">
+<!--        <img src="../../assets/images/nicePage/профиль.png" width="250px" height="250px" class="item">-->
     </div>
     <div class="section reversed" style="display: flex;">
         <span>Просматривайте свои брони</span>
-        <img src="./hotel-preview.webp" width="250px" height="250px" class="item">
+<!--        <img src="./hotel-preview.webp" width="250px" height="250px" class="item">-->
     </div>
     <div class="section" style="display: flex;">
         <span>Создавайте бронь</span>
-        <img src="./hotel-preview.webp" width="250px" height="250px" class="item">
+<!--        <img src="../../assets/images/nicePage/booking.png" width="250px" height="250px" class="item">-->
     </div>
-    <!-- <div class="section reversed" style="display: flex;">
-        <span>Просматривайте свои брони</span>
-        <img src="./hotel-preview.webp" width="250px" height="250px">
-    </div> -->
 </div>
+
 
 <div class="copyright" style="margin: 16px;
 text-align: center;
-color: red;
-background-color: blanchedalmond;
+color: black;
+background-color: #f3f3f3;
 padding: 8px;
 border-radius: 16px;">
   <div style="display: flex; flex-direction: column;">

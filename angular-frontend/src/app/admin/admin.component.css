@@ -4,7 +4,7 @@
 .inner {
   width: 90vw;
   height: 85vh;
-  background-color: rgba(0, 33, 55, 0.7);
+  background-color: rgba(239, 248, 253, 0.7);
   position: absolute;
   margin: calc((100vh - 85vh) / 2) auto;
   right: 20px;
@@ -26,7 +26,7 @@ body {
 .image {
   position: relative;
   left: -15px;
-  background-color: red;
+  /*background-color: red;*/
   border-radius: 16px;
   width: 150px;
   height: 150px;
@@ -36,7 +36,7 @@ body {
 .profile-info {
   position: relative;
   left: -50px;
-  background-color: rgba(255, 76, 91, 0.3);
+  /*background-color: rgba(255, 76, 91, 0.3);*/
   border-radius: 16px;
   height: calc(85vh - 90px - 150px);
   width: 250px;
@@ -66,7 +66,7 @@ body {
   position: absolute;
   width: calc(90vw - 250px);
   height: 80vh;
-  background-color: rgba(116, 66, 200, 0.5);
+  /*background-color: rgba(116, 66, 200, 0.5);*/
   border-radius: 16px;
   margin: 2.5vh 0;
 }

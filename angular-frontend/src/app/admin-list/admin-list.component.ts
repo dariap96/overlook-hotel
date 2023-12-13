@@ -22,11 +22,12 @@ export class AdminListComponent implements OnInit {
   }
 
   removeAdmin(admin: User) {
+    console.log(admin);
     this.adminListService.deleteAdmin(admin).subscribe(
       () => console.log('Deleting correctly'),
       error => console.warn(error)
     )
-    this.reloadPage();
+    //this.reloadPage();
   }
 
   reloadPage() {

@@ -49,4 +49,5 @@ export class DirectorComponent implements OnInit {
     )
 
   }
+
 }
