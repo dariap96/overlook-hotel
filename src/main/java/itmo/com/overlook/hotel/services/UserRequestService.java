@@ -7,12 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CalculateInterestService implements JavaDelegate {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CalculateInterestService.class);
-
+public class UserRequestService implements JavaDelegate {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserRequestService.class);
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        LOGGER.info("calculating interest of the loan");
+        LOGGER.info("processing users request");
     }
 }
