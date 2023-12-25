@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRequestService implements JavaDelegate {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserRequestService.class);
+    public class ProcessUserRequestService implements JavaDelegate {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProcessUserRequestService.class);
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
